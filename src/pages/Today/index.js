@@ -2,6 +2,7 @@ import Tabs from "components/Comman/Tabs";
 import React, { useEffect, useState } from "react";
 import MobileDashboard from "components/Dashboard/MobileDashboard";
 import { getDashboardData } from "config/APIs/dashboard";
+import Verse from "components/Dashboard/Verse";
 
 function Today() {
   const [selectedSharedTab, setSelectedSharedTab] = useState("my");
@@ -20,7 +21,7 @@ function Today() {
 
   return (
     <>
-      <div className="flex flex-col px-2.5">
+      <div className="flex flex-col">
         <Tabs
           tabs={[
             { label: "My Caarya", value: "my" },
@@ -30,8 +31,9 @@ function Today() {
           setSelectedTab={setSelectedSharedTab}
         />
 
-        <div className={`w-full px-4 max-h-[80vh] overflow-y-auto pb-20`}>
+        <div className={`w-full max-h-[80vh] overflow-y-auto pb-20`}>
           {selectedSharedTab == "my" && <MobileDashboard data={data} />}
+          {selectedSharedTab == "verse" && <Verse data={data} />}
         </div>
       </div>
     </>
