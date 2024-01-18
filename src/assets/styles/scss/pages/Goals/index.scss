@@ -1,0 +1,39 @@
+.dailyPlannerBg {
+  transition: background-color 0.5s ease-in-out;
+  &.active {
+    background-color: rgb(234, 234, 249);
+    background-color: linear-gradient(
+      180deg,
+      rgba(234, 234, 249, 1) 0%,
+      rgba(216, 215, 249, 1) 100%
+    );
+  }
+  &.inactive {
+    background-color: #fafafa;
+  }
+}
+
+.dailyPlannerHeight {
+  transition: max-height 0.5s ease-in-out;
+  &.active {
+    max-height: 140px;
+  }
+  &.inactive {
+    max-height: 60px;
+  }
+}
+
+.clockInButton {
+  transition: max-height 0.5s ease-in-out;
+  &.active {
+    max-height: 72px;
+  }
+  &.inactive {
+    max-height: 0px;
+  }
+}
+
+.triangle {
+-webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+clip-path: polygon(0 0, 100% 100%, 100% 0);
+}

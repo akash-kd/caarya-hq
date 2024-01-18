@@ -1,15 +1,12 @@
-import ProjectsPageLaptop from "components/Projects/LaptopPage";
 import ProjectsPageMobile from "components/Projects/MobilePage";
 
 function ProjectsPage() {
   return (
     <>
-      {/* <div className="block lg:hidden">
+      <div className="block lg:hidden">
         <ProjectsPageMobile />
-      </div> */}
-      <div className="block">
-        <ProjectsPageLaptop />
       </div>
+      <div className="hidden lg:block"></div>
     </>
   );
 }

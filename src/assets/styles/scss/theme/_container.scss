@@ -1,0 +1,32 @@
+@import "../constants";
+.modals-component {
+  background: #f8f8f9;
+  mix-blend-mode: normal;
+  box-shadow: 0px -10px 20px -13px rgba(0, 0, 0, 0.15);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.input-field-box {
+  background: #ffffff;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+}
+
+.input-field-box-selected {
+  background: linear-gradient(
+    133deg,
+    rgba(237, 212, 134, 1) 0%,
+    rgba(251, 246, 229, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+.theme-container {
+  background-color: #fbf6e5;
+  border-radius: $radius-external-container;
+}
+
+.shadow-filters {
+  box-shadow: 2px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    -1px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px -1px 2px 0px rgba(0, 0, 0, 0.04);
+}

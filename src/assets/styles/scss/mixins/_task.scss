@@ -1,0 +1,17 @@
+@import "../constants";
+
+@mixin generatePriorityClass($priority, $theme) {
+  .priority-#{$theme}-#{$priority} {
+    border-radius: $priority-border-radius;
+    padding: 3px 6px;
+    @content;
+  }
+}
+
+@mixin generateStatusClass($status, $theme) {
+  .status-#{$theme}-#{$status} {
+    padding: 0.5px 10px;
+    border-radius: $status-border-radius;
+    @content;
+  }
+}

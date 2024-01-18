@@ -4,8 +4,7 @@ import { Switch, BrowserRouter as Router } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
-import { updateUserClock, updateUserSquad } from "redux/user";
+import { useDispatch } from "react-redux";
 
 // Routes
 import { publicRoutes } from "routes/PublicRoute";
@@ -17,20 +16,9 @@ import AuthenticatedRedirects from "routes/AuthenticatedRedirects";
 
 // APIs
 import { refreshToken } from "config/APIs";
-import * as SquadAPIs from "config/APIs/squad";
-import {
-  ProjectTypes,
-  PROJECT_TYPE_CAARYA_INTERNAL,
-  PROJECT_TYPE_INITIATIVES,
-  PROJECT_TYPE_PERSONAL,
-  PROJECT_TYPE_WORK_STUDY,
-  PROJECT_TYPE_DEPARTMENTAL_DESKS,
-} from "helpers/projects";
-import { fetchAllTasks } from "redux/task";
 import { fetchAllgoals } from "redux/goal";
-import { fetchAllNotifications } from "redux/notification";
-import { fetchAllTracks } from "redux/tracks";
 import LaptopState from "layout/LaptopState";
+import { fetchAllProjects } from "redux/projects";
 
 function App() {
   const dispatch = useDispatch();
@@ -66,50 +54,14 @@ function App() {
     }
   };
 
-  const fetchSquad = async () => {
-    try {
-      let res = await SquadAPIs.getUserSquad(null, { showStats: true });
-
-      if (res.data && res.data.data) {
-        let data = res.data.data;
-        let members = { teamMembers: [], mentors: [], mentees: [] };
-        let projects = {};
-        projects[PROJECT_TYPE_WORK_STUDY] = [];
-        projects[PROJECT_TYPE_CAARYA_INTERNAL] = [];
-        projects[PROJECT_TYPE_INITIATIVES] = [];
-        projects[PROJECT_TYPE_PERSONAL] = [];
-        projects[PROJECT_TYPE_DEPARTMENTAL_DESKS] = [];
-
-        data?.projects?.map((item) => {
-          if (Object.keys(projects).includes(item?.type)) {
-            projects[item?.type].push(item);
-          } else {
-            if (ProjectTypes.find((e) => e?.value == item?.type))
-              projects[item?.type] = [item];
-          }
-        });
-
-        members.teamMembers = data?.teamMembers;
-        members.mentees = data?.mentees ? data?.mentees : [];
-        members.mentors = data?.mentor ? [data?.mentor] : [];
-        dispatch(updateUserSquad({ squad: members, projects: projects }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     let isMounted = true;
 
     if (isMounted && !location?.pathname?.includes("/redirect")) {
       refresh();
-      fetchSquad();
+      dispatch(fetchAllProjects());
 
       dispatch(fetchAllgoals());
-      dispatch(fetchAllTasks());
-      dispatch(fetchAllNotifications());
-      dispatch(fetchAllTracks());
     }
 
     return () => {

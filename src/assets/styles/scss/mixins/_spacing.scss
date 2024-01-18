@@ -1,0 +1,32 @@
+@mixin generatePadding($name, $space) {
+  .p-#{$name} {
+    padding: $space;
+  }
+  .px-#{$name} {
+    padding-left: $space;
+    padding-right: $space;
+  }
+  .py-#{$name} {
+    padding-top: $space;
+    padding-bottom: $space;
+  }
+}
+
+@mixin generateMargin($name, $space) {
+  .m-#{$name} {
+    margin: $space;
+  }
+  .mx-#{$name} {
+    margin-left: $space;
+    margin-right: $space;
+  }
+  .my-#{$name} {
+    margin-top: $space;
+    margin-bottom: $space;
+  }
+}
+
+@mixin generateSpacingClasses($name, $space) {
+  @include generatePadding($name, $space);
+  @include generateMargin($name, $space);
+}

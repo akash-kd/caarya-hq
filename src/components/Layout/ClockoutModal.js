@@ -2,12 +2,9 @@ import ChronosButton from "components/Comman/Buttons";
 import React from "react";
 import { useEffect, useState } from "react";
 
-import messages from "./images/messages.png";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import { MdArrowBack, MdOutlineTimer } from "react-icons/md";
 import { BiChevronDown } from "react-icons/bi";
 import { FaRegLaugh } from "react-icons/fa";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import { useSelector } from "react-redux";
 function GoalCard({ goal }) {
   const [showGoalDetails, setShowGoalDetails] = useState(false);
@@ -157,7 +154,7 @@ function ClockoutModal({ closeModal, onClick }) {
             mentioned above.
           </p>
           <div className="flex items-center justify-center mt-4">
-            <img src={messages} alt="messages image" />
+            {/* <img src={messages} alt="messages image" /> */}
           </div>
         </div>
         <div className="flex items-center justify-between mt-8 gap-x-[15px]">

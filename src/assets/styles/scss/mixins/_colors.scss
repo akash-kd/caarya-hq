@@ -1,0 +1,49 @@
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == "vertical" {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == "horizontal" {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(
+      center,
+      ellipse cover,
+      $start-color,
+      $end-color
+    );
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+@mixin fontColorClass($color, $list) {
+  @each $id, $value in $list {
+    .font-#{$color}-#{$id} {
+      color: $value;
+    }
+  }
+}
+
+@mixin bgColorClass($color, $list) {
+  @each $id, $value in $list {
+    .bg-#{$color}-#{$id} {
+      background-color: $value;
+    }
+  }
+}
+
+@mixin borderColorClass($color, $list) {
+  @each $id, $value in $list {
+    .border-#{$color}-#{$id} {
+      border-color: $value;
+    }
+  }
+}
+
+@mixin generateThemeClasses($color, $list) {
+  @include fontColorClass($color, $list);
+  @include bgColorClass($color, $list);
+  @include borderColorClass($color, $list);
+}

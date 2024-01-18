@@ -1,0 +1,67 @@
+@import "../constants";
+
+@mixin inputFont($size: 14px) {
+  font-family: $lato;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size;
+  line-height: 17px;
+  color: $theme-gray-600;
+
+  &::placeholder {
+    color: $theme-gray-350;
+  }
+}
+
+@mixin buttonFont(
+  $weight: 500,
+  $color: $theme-gray-600,
+  $size: 14px,
+  $height: 21px,
+  $disabledColor: $theme-gray-150
+) {
+  font-family: $karla;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+  &:disabled {
+    color: $disabledColor;
+  }
+}
+
+@mixin priorityFont(
+  $weight: 700,
+  $color: $theme-gray-600,
+  $size: 10px,
+  $height: 21px
+) {
+  font-family: $lato;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
+
+@mixin statusFont(
+  $weight: 700,
+  $color: $theme-gray-600,
+  $size: 10px,
+  $height: 21px
+) {
+  font-family: $lato;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}

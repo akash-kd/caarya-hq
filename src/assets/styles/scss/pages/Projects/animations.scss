@@ -1,0 +1,65 @@
+/* Project Card Animations  */
+
+.show-project {
+  opacity: 1;
+  @include animation("reveal 1s ease-in-out");
+}
+
+.hide-project {
+  opacity: 0;
+  @include animation("hide 4s ease-in-out");
+}
+
+.project-box {
+  width: 174px;
+  height: 130px;
+  transition: all 0.5s ease-in-out;
+}
+
+.project-card {
+  width: 174px !important;
+  height: 130px;
+}
+
+.project-details {
+  width: 200px;
+  height: 130px;
+}
+
+.project-box-expanded {
+  width: 374px;
+  min-width: 174px;
+  height: 130px;
+  transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 520px) {
+  .project-box-expanded {
+    width: calc(100vw - 40);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.show-projects {
+  opacity: 1;
+  @include animation("reveal 1s ease-in-out");
+}
+
+.hide-projects {
+  opacity: 0;
+  @include animation("hide 4s ease-in-out");
+}
+
+.project-container-box {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  transition: all 0.5s ease-in-out;
+}
+
+.project-container-box-expanded {
+  width: 100%;
+  height: 90px;
+  min-height: 90px;
+  transition: all 0.3s ease-in-out;
+}

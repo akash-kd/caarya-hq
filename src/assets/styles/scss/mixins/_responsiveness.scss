@@ -1,0 +1,45 @@
+@import "../constants";
+
+/*Responsiveness*/
+
+@mixin device($size, $pixels: $breakpoint-desktop-small) {
+  @if $size == phone {
+    @media (max-width: $breakpoint-phone) {
+      @content;
+    }
+  } @else if $size == tab-sm {
+    @media (min-width: $breakpoint-tablet-small) {
+      @content;
+    }
+  } @else if $size == tab-md {
+    @media (min-width: $breakpoint-tablet-medium) {
+      @content;
+    }
+  } @else if $size == tab-lg {
+    @media (min-width: $breakpoint-tablet-large) {
+      @content;
+    }
+  } @else if $size == laptop {
+    @media (min-width: $breakpoint-desktop-small) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: $breakpoint-desktop-medium) {
+      @content;
+    }
+  } @else if $size == desktop-lg {
+    @media (min-width: $breakpoint-desktop-large) {
+      @content;
+    }
+  } @else if $size == desktop-xl {
+    @media (min-width: $breakpoint-desktop-extralarge) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (max-width: $pixels) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

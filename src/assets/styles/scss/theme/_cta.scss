@@ -1,0 +1,286 @@
+@import "../constants";
+
+.primary-yellow-cta {
+  @include buttonFont;
+  background: $theme-yellow-550;
+  box-shadow: $shadow-button-container rgba(241, 194, 27, 0.5);
+  border-radius: $radius-button-container;
+
+  &:hover {
+  }
+
+  &:active {
+  }
+
+  &:disabled {
+    background: $theme-gray-100;
+    box-shadow: $shadow-button-container $shadow-black-opacity-50;
+  }
+
+  &.floating-cta {
+    box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+      0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+.primary-red-cta {
+  @include buttonFont($color: #fff);
+  background: $theme-red-550;
+  box-shadow: $shadow-button-container rgba(241, 27, 27, 0.5);
+  border-radius: $radius-button-container;
+
+  &:hover {
+  }
+
+  &:active {
+  }
+
+  &:disabled {
+    background: $theme-gray-100;
+    box-shadow: $shadow-button-container $shadow-black-opacity-50;
+  }
+}
+
+.primary-cta {
+  @include buttonFont($color: #fff);
+  background: $theme-yellow-1000;
+  // box-shadow: $shadow-button-container rgba(30, 36, 71, 0.5);
+  border-radius: $radius-button-container;
+
+  &:hover {
+    background-color: $theme-yellow-880;
+  }
+
+  &:active {
+    background: $theme-yellow-880;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.primary-purple-cta {
+  @include buttonFont($color: #fff);
+  background: $theme-purple-500;
+  // box-shadow: $shadow-button-container rgba(30, 36, 71, 0.5);
+  border-radius: $radius-button-container;
+
+  &:hover {
+    background-color: $theme-purple-300;
+  }
+
+  &:active {
+    background: $theme-purple-700;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.primary-yellow-cta {
+  @include buttonFont($color: $theme-yellow-900);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffe99a 0%, #ffd844 100%);
+
+  /* Shadow */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: $theme-yellow-100;
+  }
+
+  &:active {
+    background-color: $theme-yellow-100;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.tertiary-purple-cta {
+  @include buttonFont(400, $theme-purple-1000);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: $theme-purple-700;
+  }
+}
+
+.tertiary-cta {
+  @include buttonFont(400, $theme-yellow-800);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: $theme-yellow-800;
+  }
+}
+
+.tertiary-red-cta {
+  @include buttonFont(400, $theme-red-550);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: $theme-purple-700;
+  }
+}
+
+.secondary-cta {
+  @include buttonFont($color: $theme-yellow-1000);
+  border-radius: $radius-button-container;
+  border: 1px solid $theme-yellow-1000;
+  color: $theme-yellow-1000;
+  font-weight: 600;
+
+  &:hover {
+    color: #262a33ff;
+    border: 2px solid #262a33ff;
+  }
+
+  &:active {
+    border: 2px solid #323743ff;
+    // box-shadow: $shadow-button-container rgba(52, 30, 72, 0.5);
+    color: #323743ff;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.secondary-yellow-cta {
+  @include buttonFont($color: $theme-yellow-800);
+  border-radius: 8px;
+  border: 1px solid $theme-yellow-800;
+  color: $theme-yellow-800;
+  font-weight: 600;
+
+  &:hover {
+    color: $theme-yellow-900;
+    border: 2px solid $theme-yellow-900;
+  }
+
+  &:active {
+    border: 2px solid $theme-yellow-800;
+    // box-shadow: $shadow-button-container rgba(52, 30, 72, 0.5);
+    color: $theme-yellow-800;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.secondary-modal-cta {
+  @include buttonFont($color: $theme-gray-350);
+  box-shadow: $shadow-button-container $shadow-black-opacity-7;
+  border-radius: $radius-button-container;
+  border: 2px solid $theme-gray-350;
+  color: $theme-gray-350;
+  font-weight: bold;
+  padding: 4px 20px !important;
+
+  &:hover {
+    color: $theme-gray-600;
+    border: 3px solid $theme-gray-600;
+    box-shadow: $shadow-button-container $shadow-black-opacity-11;
+  }
+
+  &:active {
+    border: 2px solid $theme-gray-350;
+    box-shadow: $shadow-button-container $shadow-black-opacity-11;
+    color: $theme-gray-350;
+  }
+
+  &:disabled {
+    border: 1px solid $theme-gray-100;
+    background: $theme-gray-100;
+    box-shadow: $shadow-button-container $shadow-black-opacity-7;
+  }
+}
+
+.floating-primary-cta {
+  @include buttonFont($color: #fff);
+  background: $theme-purple-700;
+  box-shadow: $shadow-button-container rgba(73, 81, 151, 0.5);
+  border-radius: $radius-button-container;
+
+  &:hover {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  &:active {
+    border: 2px solid $theme-purple-700;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  &:disabled {
+    border: 1px solid $theme-gray-100;
+    background: $theme-gray-100;
+    box-shadow: 0px 0px 16px 3px $shadow-black-opacity-25;
+  }
+}
+
+.floating-secondary-cta {
+  @include buttonFont(400, $theme-gray-350);
+  background: $theme-gray-60;
+  box-shadow: 0px 0px 16px 3px rgba(50, 50, 50, 0.5);
+  border-radius: $radius-button-container;
+  border: 1px solid $theme-gray-350;
+
+  &:hover {
+    font-weight: 700;
+    border: 2px solid $theme-gray-350;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  &:active {
+    border: 2px solid $theme-gray-600;
+    color: $theme-gray-600;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  &:disabled {
+    border: 1px solid $theme-gray-100;
+    background: $theme-gray-100;
+  }
+}
+
+.embed-cta {
+  @include buttonFont($color: $theme-purple-700, $size: 10px, $height: 15px);
+  box-shadow: $shadow-button-container $shadow-black-opacity-50;
+  border-radius: $radius-button-container;
+  border: 1px solid $theme-purple-700;
+
+  &:hover,
+  &:active {
+    border: 2px solid $theme-purple-700;
+    font-size: 11px;
+    line-height: 16px;
+    color: $theme-purple-700;
+  }
+
+  &:disabled {
+    border: 1px solid $theme-gray-100;
+    background: $theme-gray-100;
+  }
+}

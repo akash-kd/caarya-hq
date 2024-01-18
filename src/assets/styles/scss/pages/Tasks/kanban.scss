@@ -1,0 +1,82 @@
+@import "../../constants";
+
+.kanban-add-new-card {
+  max-width: 380px;
+  background-color: #ffffff;
+  box-shadow: 8px 8px 16px $shadow-black-opacity-7;
+  border-radius: 9px;
+  padding: 20px;
+}
+
+.kanban-wrapper {
+  max-width: 90vw !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .kanban-wrapper {
+    max-width: max-content;
+    min-width: max-content;
+  }
+}
+
+.hover-on-kanban-card {
+  cursor: pointer;
+}
+
+.hover-on-kanban-card:hover {
+  transform: scale(1.05) !important;
+  transition-property: transform !important;
+  transition-timing-function: ease-in-out;
+  transition-duration: 400ms !important;
+  animation: shake 1000ms ease-in backwards;
+}
+
+.hover-on-kanban-card:hover .kanban-card-hover-text {
+  transform: scale(1.1) !important;
+  transition-property: transform !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 400ms !important;
+}
+
+.hover-on-kanban-card:hover .kanban-card-hover-arrow {
+  transform: scale(1.2) !important;
+  transition-property: transform !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 400ms !important;
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1.05) rotate(-2deg);
+  }
+
+  70% {
+    transform: scale(1.05) rotate(2deg);
+  }
+
+  90% {
+    transform: scale(1.05) rotate(-3deg);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.task-board-card-v2 {
+  max-width: 380px;
+}
+
+@media screen and (max-width: 400px) {
+  .kanban-board > .task-board-card-v2 {
+    max-width: calc(100vw - (60px));
+  }
+}

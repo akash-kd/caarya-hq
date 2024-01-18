@@ -33,5 +33,4 @@ export const forgeInstance = axios.create({
   baseURL: FORGE_ENDPOINT,
 });
 
-
 export const refreshToken = () => forgeInstance.get("/auth/token", getHeader());

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import TaskCreateModal from "components/Modals/Task/TaskCreate";
 import { tabs } from "helpers/constants/tabs";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,10 +10,8 @@ import { MdOutlineTimer } from "react-icons/md";
 import ClockoutModal from "./ClockoutModal";
 import { clockIn, clockOut } from "config/APIs/users/clock";
 import moment from "moment";
-import { updateUserClock } from "redux/user";
 import { showToast } from "redux/toaster";
 import { bulkUpdateGoals } from "config/APIs/task/goal";
-import { fetchAllgoals } from "redux/goal";
 
 function DesktopWrapper({ children }) {
   const dispatch = useDispatch();
@@ -22,7 +19,6 @@ function DesktopWrapper({ children }) {
   const user = useSelector((state) => state.user.user);
   const inFocusGoal = useSelector((state) => state.goals.inFocus?.goals);
   const history = useHistory();
-  const [openCreateModal, setOpenCreateModal] = useState(false);
   const [logOut, setLogOut] = useState(false);
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
@@ -129,18 +125,7 @@ function DesktopWrapper({ children }) {
           />
         }
       />
-      <TaskCreateModal
-        myTask={true}
-        isOpen={openCreateModal}
-        closeModal={() => setOpenCreateModal(false)}
-        onCreate={() => {
-          setOpenCreateModal(false);
 
-          if (!window.location.pathname.includes("task")) {
-            history.push("/tasks");
-          }
-        }}
-      />
       <div className="w-screen h-screen lg:flex flex-row items-stretch hidden">
         <div className="side-nav py-5 h-full w-full flex flex-col justify-between">
           <div className="flex flex-col space-y-7 items-center">

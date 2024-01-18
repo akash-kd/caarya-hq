@@ -3,19 +3,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { mobileBottomNav } from "helpers/constants";
 import { PlusIcon } from "@heroicons/react/solid";
-import GoalCreateEdit from "components/Modals/Goal/GoalCreate/GoalCreateEdit";
 function TabBar() {
   const history = useHistory();
-  const [openCreateModal, setOpenCreateModal] = useState(false);
   return (
     <div>
-      <GoalCreateEdit
-        isOpen={openCreateModal}
-        closeModal={() => setOpenCreateModal(false)}
-        onCreate={() => {
-          setOpenCreateModal(false);
-        }}
-      />
       <div
         className={`w-full fixed z-30 bottom-0 right-0 tapbar left-0 lg:hidden transform transition-all ease-in-out duration-300 font-karla`}
       >
@@ -29,7 +20,8 @@ function TabBar() {
                   key={idx}
                   onClick={() => {
                     if (item?.path) history.push(item?.path);
-                    else setOpenCreateModal(true);
+                    else {
+                    }
                   }}
                   className={`relative py-2 px-1 ${
                     window.location.pathname.includes(item?.path)

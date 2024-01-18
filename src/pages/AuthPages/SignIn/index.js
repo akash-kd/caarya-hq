@@ -7,15 +7,11 @@ import {
   loginWithFirebaseAuthToken,
   verifyPhoneNumberForOTP,
 } from "config/APIs/auth";
-import * as SquadAPIs from "config/APIs/squad";
 
 // Redux
 import { useDispatch } from "react-redux";
 import { showToast } from "redux/toaster";
 import { userUpdate } from "redux/user";
-
-import Footer from "./Footer";
-import { ChevronLeftIcon } from "@heroicons/react/solid";
 
 // Core components
 

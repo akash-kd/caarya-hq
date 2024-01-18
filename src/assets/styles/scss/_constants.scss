@@ -1,0 +1,216 @@
+/*Theme Colors*/
+$theme-indigo-10: #f6f8ff;
+$theme-indigo-50: #ebedf7;
+$theme-indigo-100: #f0f1f8;
+$theme-indigo-150: #eaecf6;
+$theme-indigo-200: #e8ebff;
+$theme-indigo-250: #a4abcb;
+$theme-indigo-300: #8da1fc;
+$theme-indigo-400: #6775f5;
+$theme-indigo-550: #4f57b7;
+$theme-indigo-650: #1e2447;
+$theme-indigo-700: #384486;
+
+$indigo-colors: (
+  10: $theme-indigo-10,
+  50: $theme-indigo-50,
+  100: $theme-indigo-100,
+  200: $theme-indigo-200,
+  250: $theme-indigo-250,
+  300: $theme-indigo-300,
+  400: $theme-indigo-400,
+  550: $theme-indigo-550,
+  650: $theme-indigo-650,
+  700: $theme-indigo-700,
+);
+
+$theme-gray-50: #f8f8f9;
+$theme-gray-60: #f1f1f1;
+$theme-gray-100: #f4f4f4;
+$theme-gray-150: #e1e1e1;
+$theme-gray-200: #d8d8d8;
+$theme-gray-250: #a4a2a5;
+$theme-gray-300: #6d6d6d;
+$theme-gray-350: #747474;
+$theme-gray-400: #424242;
+$theme-gray-500: #332e35;
+$theme-gray-600: #323232;
+$theme-gray-900: #2b2b2d;
+$theme-gray-1000: #171718;
+
+$gray-colors: (
+  50: $theme-gray-50,
+  60: $theme-gray-60,
+  100: $theme-gray-100,
+  150: $theme-gray-150,
+  200: $theme-gray-200,
+  250: $theme-gray-250,
+  300: $theme-gray-300,
+  350: $theme-gray-350,
+  400: $theme-gray-400,
+  500: $theme-gray-500,
+  600: $theme-gray-600,
+  900: $theme-gray-900,
+  1000: $theme-gray-1000,
+);
+
+// Secondary Colors
+$theme-yellow-50: #fef6e9;
+$theme-yellow-100: #fde4be;
+$theme-yellow-500: #f7cd16;
+$theme-yellow-550: #f1c21b;
+$theme-yellow-600: #e0b808;
+$theme-yellow-700: #6b5f1c;
+$theme-yellow-750: #5b511b;
+$theme-yellow-800: #ba7507;
+$theme-yellow-850: #935d05;
+$theme-yellow-880: #865931;
+$theme-yellow-900: #532a01;
+$theme-yellow-1000: #301709;
+
+$yellow-colors: (
+  50: $theme-yellow-50,
+  100: $theme-yellow-100,
+  500: $theme-yellow-500,
+  550: $theme-yellow-550,
+  600: $theme-yellow-600,
+  700: $theme-yellow-700,
+  750: $theme-yellow-750,
+  800: $theme-yellow-800,
+  850: $theme-yellow-850,
+  880: $theme-yellow-880,
+  900: $theme-yellow-900,
+  1000: $theme-yellow-1000,
+);
+
+$theme-orange-50: #fff1e8;
+$theme-orange-100: #ffd4bb;
+$theme-orange-400: #faa613;
+$theme-orange-500: #ff9000;
+$theme-orange-600: #db7c00;
+$theme-orange-700: #c44900;
+$theme-orange-800: #983800;
+
+$orange-colors: (
+  50: $theme-orange-50,
+  100: $theme-orange-100,
+  400: $theme-orange-400,
+  500: $theme-orange-500,
+  600: $theme-orange-600,
+  700: $theme-orange-700,
+  800: $theme-orange-800,
+);
+
+$theme-green-50: #e7fdf4;
+$theme-green-100: #b6f9de;
+$theme-green-500: #0a8754;
+$theme-green-550: #6bd425;
+$theme-green-600: #086842;
+
+$green-colors: (
+  50: $theme-green-50,
+  100: $theme-green-100,
+  500: $theme-green-500,
+  550: $theme-green-550,
+  600: $theme-green-600,
+);
+
+$theme-blue-50: #e8f0f8;
+$theme-blue-100: #b9d2e9;
+$theme-blue-550: #3778c6;
+$theme-blue-700: #13293d;
+$theme-blue-800: #0f2131;
+
+$blue-colors: (
+  50: $theme-blue-50,
+  100: $theme-blue-100,
+  550: $theme-blue-550,
+  700: $theme-blue-700,
+  800: $theme-blue-800,
+);
+
+// Secondary Colors
+$theme-purple-100: #eaeaf9;
+$theme-purple-200: #d8d7f9;
+$theme-purple-300: #a193f2;
+$theme-purple-500: #816fe9;
+$theme-purple-700: #5e4fba;
+$theme-purple-900: #2d246b;
+$theme-purple-1000: #1d1d38;
+
+$purple-colors: (
+  100: $theme-purple-100,
+  200: $theme-purple-200,
+  300: $theme-purple-300,
+  500: $theme-purple-500,
+  700: $theme-purple-700,
+  900: $theme-purple-900,
+  1000: $theme-purple-1000,
+);
+
+$theme-red-100: #fcf0f1;
+$theme-red-200: #f7d1d4;
+$theme-red-550: #db2b39;
+$theme-red-600: #c61e29;
+$theme-red-700: #af1e2a;
+$red-colors: (
+  100: $theme-red-100,
+  200: $theme-red-200,
+  550: $theme-red-550,
+  600: $theme-red-600,
+  700: $theme-red-700,
+);
+
+// Border radius
+$radius-external-container: 40px;
+$radius-internal-container: 10px;
+$radius-button-container: 4px;
+$priority-border-radius: 4px;
+$status-border-radius: 10px;
+
+// Typography
+$karla: "Karla", sans-serif;
+$lato: "Lato", sans-serif;
+$inter: "Inter", sans-serif;
+
+// Breakpoints
+$breakpoint-phone: 599px;
+$breakpoint-tablet-small: 600px;
+$breakpoint-tablet-medium: 768px;
+$breakpoint-tablet-large: 1024px;
+$breakpoint-desktop-small: 1200px;
+$breakpoint-desktop-medium: 1440px;
+$breakpoint-desktop-large: 1600px;
+$breakpoint-desktop-extralarge: 1800px;
+
+$breakpoints: (
+  phone: $breakpoint-phone,
+  tab-sm: $breakpoint-tablet-small,
+  tab-md: $breakpoint-tablet-medium,
+  tab-lg: $breakpoint-tablet-large,
+  laptop: $breakpoint-desktop-small,
+  desktop: $breakpoint-desktop-medium,
+  desktop-lg: $breakpoint-desktop-large,
+  desktop-xl: $breakpoint-desktop-extralarge,
+);
+
+//Layout
+
+// Border radius
+$radius-button-container: 4px;
+
+// Padding
+
+// Shadow opacity
+$shadow-black-opacity-5: rgba(0, 0, 0, 0.05);
+$shadow-black-opacity-7: rgba(0, 0, 0, 0.07);
+$shadow-black-opacity-10: rgba(0, 0, 0, 0.1);
+$shadow-black-opacity-11: rgba(0, 0, 0, 0.11);
+$shadow-black-opacity-20: rgba(0, 0, 0, 0.2);
+$shadow-black-opacity-25: rgba(0, 0, 0, 0.25);
+$shadow-black-opacity-50: rgba(0, 0, 0, 0.5);
+
+// Shadow
+$shadow-button-container: 0px 10px 20px -10px;
+$shadow-input: 0px 7px 15px -10px;
+$shadow-card: 1px 4px 10px;

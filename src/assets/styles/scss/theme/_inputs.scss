@@ -1,0 +1,136 @@
+@import "../constants";
+
+.input-label {
+  font-family: $lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #696763;
+  margin-bottom: 8px;
+
+  @include device("tab-lg") {
+    font-size: 11px;
+  }
+}
+label {
+  font-family: $lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #696763;
+  margin-bottom: 8px;
+
+  @include device("tab-lg") {
+    font-size: 11px;
+  }
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline-style: none;
+}
+
+.theme-simple-input {
+  font-family: $inter; /* Body */
+  font-size: 14px;
+  background: #fff; /* neutral-200 */
+  border-bottom: 1px solid #e7e6e5;
+
+  outline: none;
+
+  /* hover */
+  &:hover {
+    background: #fafafa; /* neutral-200 */
+  }
+  /* focused */
+  &:focus {
+    background: #fafafa;
+    border-bottom: 1px solid #ffbc00;
+  }
+  /* disabled */
+  &:disabled {
+    background: #f3f4f6ff; /* neutral-200 */
+    border-width: 0px;
+  }
+
+  &.text-base {
+    font-size: 16px !important;
+  }
+}
+
+.theme-input {
+  font-family: $lato; /* Body */
+  font-size: 11px;
+  background: #fff; /* neutral-200 */
+  border-radius: 6px; /* border-s */
+  border-width: 1px;
+  border-color: #e2e8f0;
+  outline: none;
+
+  /* hover */
+  &:hover {
+    color: #171a1fff; /* neutral-900 */
+    background: #f3f4f6ff; /* neutral-200 */
+  }
+  /* focused */
+  &:focused {
+    color: #171a1fff; /* neutral-900 */
+    background: #ffffffff; /* white */
+  }
+  /* disabled */
+  &:disabled {
+    color: #171a1fff; /* neutral-900 */
+    background: #f3f4f6ff; /* neutral-200 */
+    border-width: 0px;
+  }
+}
+
+.suggestion-box {
+  max-height: 0px;
+
+  -webkit-animation: all 2s ease-in-out;
+  -moz-animation: all 2s ease-in-out;
+  -ms-animation: all 2s ease-in-out;
+  -o-animation: all 2s ease-in-out;
+  animation: all 2s ease-in-out;
+}
+.suggestion-box {
+  &.expanded {
+    height: auto;
+    max-height: 500px;
+  }
+}
+
+.show-suggestion {
+  transform: scaleY(1);
+  @include animation("reveal 1s ease-in-out");
+}
+
+.hide-suggestion {
+  transform: scaleY(0);
+  @include animation("hide 4s ease-in-out");
+}
+
+@keyframes increaseHeight {
+  0% {
+    // transform: scaleY(0);
+    max-height: auto;
+    // opacity: 0;
+  }
+  100% {
+    // transform: scaleY(1);
+    max-height: auto;
+    // opacity: 100;
+  }
+}
+
+/* Apply the animation to the div */
+#expandingDiv {
+  animation: increaseHeight 0.5s ease-in-out;
+  transform-origin: top;
+}

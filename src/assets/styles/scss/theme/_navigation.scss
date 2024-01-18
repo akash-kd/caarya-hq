@@ -1,0 +1,38 @@
+@import "../constants";
+.side-nav {
+  background: #edd486;
+  max-width: 252px;
+  width: 100%;
+}
+
+.menuitem {
+  font-family: $karla;
+  font-size: 14px;
+  color: #fff;
+  border-right: 5px solid transparent;
+  padding: 22px 28px;
+  font-weight: 600;
+  // box-shadow: 0px 0px 1px #ccc, 0px 0px 2px #ccc;
+  &:hover {
+    background: rgba(48, 23, 9, 0.1);
+    color: $theme-yellow-880;
+    background: #f8f8f9;
+    padding: 22px 28px;
+    border-radius: 25px 0px 0px 25px;
+  }
+
+  &.active {
+    padding: 22px 28px;
+    color: $theme-yellow-880;
+    background: #f8f8f9;
+    border-radius: 25px 0px 0px 25px;
+  }
+}
+
+.addTask {
+  max-width: 172px;
+  border-radius: 8px;
+  font-family: $karla;
+  color: white;
+  font-weight: bold;
+}

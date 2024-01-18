@@ -1,0 +1,134 @@
+@import "../../constants";
+@import "../../mixins/task";
+
+@include generatePriorityClass("1", "light") {
+  @include priorityFont($color: $theme-red-550);
+  background-color: $theme-red-200;
+
+  &:hover {
+    background-color: $theme-red-100;
+    cursor: pointer;
+  }
+}
+
+@include generatePriorityClass("2", "light") {
+  @include priorityFont($color: $theme-yellow-800);
+  background-color: $theme-yellow-100;
+
+  &:hover {
+    background-color: $theme-yellow-50;
+    cursor: pointer;
+  }
+}
+
+@include generatePriorityClass("3", "light") {
+  @include priorityFont($color: $theme-orange-700);
+  background-color: $theme-orange-100;
+
+  &:hover {
+    background-color: $theme-orange-50;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("4", "light") {
+  @include priorityFont($color: $theme-blue-700);
+  background-color: $theme-blue-100;
+
+  &:hover {
+    background-color: $theme-blue-50;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("5", "light") {
+  @include priorityFont($color: $theme-green-500);
+  background-color: $theme-green-100;
+
+  &:hover {
+    background-color: $theme-green-50;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("6", "light") {
+  @include priorityFont($color: $theme-gray-500);
+  background-color: $theme-gray-60;
+
+  &:hover {
+    background-color: $theme-gray-100;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("0", "light") {
+  @include priorityFont($color: $theme-red-550);
+  background-color: $theme-red-200;
+
+  &:hover {
+    background-color: $theme-red-100;
+    cursor: pointer;
+  }
+}
+
+@include generatePriorityClass("1", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-red-550;
+
+  &:hover {
+    background-color: $theme-red-700;
+    cursor: pointer;
+  }
+}
+
+@include generatePriorityClass("2", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-yellow-800;
+
+  &:hover {
+    background-color: $theme-yellow-850;
+    cursor: pointer;
+  }
+}
+
+@include generatePriorityClass("3", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-orange-700;
+
+  &:hover {
+    background-color: $theme-orange-800;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("4", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-blue-700;
+
+  &:hover {
+    background-color: $theme-blue-800;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("5", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-green-550;
+
+  &:hover {
+    background-color: $theme-green-600;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("6", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-gray-500;
+
+  &:hover {
+    background-color: $theme-gray-900;
+    cursor: pointer;
+  }
+}
+@include generatePriorityClass("0", "dark") {
+  @include priorityFont($color: white);
+  background-color: $theme-red-550;
+
+  &:hover {
+    background-color: $theme-red-700;
+    cursor: pointer;
+  }
+}

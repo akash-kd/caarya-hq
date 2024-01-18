@@ -6,20 +6,21 @@ const mobileBottomNav = [
     selectedImage: "/assets/svg/tabbar/selectedFocus.svg",
   },
   {
-    name: "Tracks",
-    path: "/tracks",
+    name: "Upcoming Events",
+    path: "/events",
     image: "/assets/svg/tabbar/tracks.svg",
     selectedImage: "/assets/svg/tabbar/selectedTracks.svg",
   },
 
   {
-    name: "Add Goal",
+    name: "Chronicles",
+    path: "/chronicles",
     image: "/assets/svg/tabbar/addFromTabbar.svg",
     selectedImage: "/assets/svg/tabbar/addFromTabbar.svg",
   },
   {
-    name: "Goal Hub",
-    path: "/goalHub",
+    name: "Battle Section",
+    path: "/battle",
     image: "/assets/svg/tabbar/goalHub.svg",
     selectedImage: "/assets/svg/tabbar/selectedGoalHub.svg",
   },

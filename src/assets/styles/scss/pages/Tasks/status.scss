@@ -1,0 +1,102 @@
+@import "../../constants";
+@import "../../mixins/task";
+
+@include generateStatusClass("NotStarted", "light") {
+  @include statusFont($color: $theme-red-550);
+  background-color: $theme-red-200;
+
+  &:hover {
+    background-color: $theme-red-100;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("InProgress", "light") {
+  @include statusFont($color: $theme-yellow-800);
+  background-color: $theme-yellow-100;
+
+  &:hover {
+    background-color: $theme-yellow-50;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("InReview", "light") {
+  @include statusFont($color: $theme-orange-700);
+  background-color: $theme-orange-100;
+
+  &:hover {
+    background-color: $theme-orange-50;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("Completed", "light") {
+  @include statusFont($color: $theme-green-500);
+  background-color: $theme-green-100;
+
+  &:hover {
+    background-color: $theme-green-50;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("Assign", "light") {
+  @include statusFont($color: $theme-red-550);
+  background-color: $theme-red-200;
+
+  &:hover {
+    background-color: $theme-red-100;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("NotStarted", "dark") {
+  @include statusFont($color: white);
+  background-color: $theme-red-550;
+
+  &:hover {
+    background-color: $theme-red-700;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("InProgress", "dark") {
+  @include statusFont($color: white);
+  background-color: $theme-yellow-800;
+
+  &:hover {
+    background-color: $theme-yellow-850;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("InReview", "dark") {
+  @include statusFont($color: white);
+  background-color: $theme-orange-700;
+
+  &:hover {
+    background-color: $theme-orange-800;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("Completed", "dark") {
+  @include statusFont($color: white);
+  background-color: $theme-green-550;
+
+  &:hover {
+    background-color: $theme-green-600;
+    cursor: pointer;
+  }
+}
+
+@include generateStatusClass("Assign", "dark") {
+  @include statusFont($color: white);
+  background-color: $theme-red-550;
+
+  &:hover {
+    background-color: $theme-red-700;
+    cursor: pointer;
+  }
+}

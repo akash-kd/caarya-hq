@@ -1,0 +1,56 @@
+.show-learning-box {
+  opacity: 1;
+  @include animation("reveal-down 0.5s ease");
+}
+
+.hide-learning-box {
+  opacity: 0;
+  @include animation("hide2 1s ease");
+}
+
+.learning-box {
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.learning-box-details {
+  min-height: 0px;
+  transition: all 0.5s ease;
+}
+
+.learning-box-details-expanded {
+  min-height: 152px;
+  transition: all 0.5s ease;
+}
+
+.learning-box-expanded {
+  width: 100%;
+  height: auto;
+  transition: all 0.5s ease;
+}
+* {
+  scrollbar-width: none;
+}
+@include keyframes(reveal-down) {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include keyframes(hide2) {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
