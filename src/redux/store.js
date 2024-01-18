@@ -5,6 +5,10 @@ import toasterReducer from "./toaster";
 import userReducer from "./user";
 import projectReducer from "./projects";
 import goalsReducer from "./goal";
+import shareablesReducer from "./shareables";
+import sourcingDriveReducer from "./sourcingDrive";
+import collegeReducer from "./college";
+import dropdown from "./dropdown";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +16,10 @@ const store = configureStore({
     toaster: toasterReducer,
     user: userReducer,
     projects: projectReducer,
+    shareables: shareablesReducer,
+    sourcingDrive: sourcingDriveReducer,
+    college: collegeReducer,
+    dropdown: dropdown,
     goals: goalsReducer,
   },
 });

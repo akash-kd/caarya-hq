@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { mobileBottomNav } from "helpers/constants";
 import { PlusIcon } from "@heroicons/react/solid";
 function TabBar() {

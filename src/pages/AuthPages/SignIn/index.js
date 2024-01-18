@@ -171,7 +171,7 @@ function SignIn() {
           <div className="z-10 inset-0 items-center pb-6">
             <img
               className="mx-auto w-28"
-              src="/assets/caaryaLogos/text_logo.png"
+              src="/assets/caaryaLogos/logo.png"
               alt="logo"
             />
           </div>

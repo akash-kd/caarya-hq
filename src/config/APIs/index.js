@@ -4,6 +4,7 @@ import config from "config/APIEndpoints";
 const BASE_API_URL = config.getEndpoint();
 const ADMIN_API_URL = BASE_API_URL + "/api/v1";
 const FORGE_ENDPOINT = BASE_API_URL + "/api/v1/app/forge";
+const LIVE_ENDPOINT = BASE_API_URL + "/api/v1/app/live/";
 
 export { BASE_API_URL };
 
@@ -34,3 +35,6 @@ export const forgeInstance = axios.create({
 });
 
 export const refreshToken = () => forgeInstance.get("/auth/token", getHeader());
+export const liveInstance = axios.create({
+  baseURL: LIVE_ENDPOINT,
+});

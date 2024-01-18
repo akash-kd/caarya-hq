@@ -23,3 +23,8 @@ export const getDiscord = () => {
       };
   }
 };
+
+export const feBaseLink = {
+  applicationForm: "https://caarya-apps.web.app",
+  caaryaLive: "https://caarya.live",
+};
