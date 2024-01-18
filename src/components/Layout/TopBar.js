@@ -16,12 +16,12 @@ function TopBar() {
       <a href="/">
         <div className="flex flex-row items-center space-x-1">
           <h1 className="font-normal font-poppins text-xl text-primary-red-medium">
-            Caarya HQ
+            #caaryaon
           </h1>
         </div>
       </a>
       <div className="flex flex-row items-center space-x-4">
-        {/* <div
+        <div
           onClick={() => {
             history.push("/chronicle");
           }}
@@ -32,7 +32,7 @@ function TopBar() {
             alt=""
             className="w-5 h-5"
           />
-        </div>{" "} */}
+        </div>{" "}
         <div
           onClick={() => {
             history.push("/shareables");

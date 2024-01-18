@@ -6,20 +6,20 @@ const mobileBottomNav = [
     selectedImage: "/assets/svg/tabbar/selectedFocus.svg",
   },
   {
-    name: "Upcoming Events",
+    name: "Events",
     path: "/events",
     image: "/assets/svg/tabbar/tracks.svg",
     selectedImage: "/assets/svg/tabbar/selectedTracks.svg",
   },
 
   {
-    name: "Chronicles",
-    path: "/chronicles",
-    image: "/assets/svg/tabbar/addFromTabbar.svg",
-    selectedImage: "/assets/svg/tabbar/addFromTabbar.svg",
+    name: "Today",
+    path: "/today",
+    image: "/assets/caaryaLogos/logoSimple.png",
+    selectedImage: "/assets/caaryaLogos/logoSimple.png",
   },
   {
-    name: "Battle Section",
+    name: "Battles",
     path: "/battle",
     image: "/assets/svg/tabbar/goalHub.svg",
     selectedImage: "/assets/svg/tabbar/selectedGoalHub.svg",

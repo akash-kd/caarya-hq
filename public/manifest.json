@@ -1,6 +1,6 @@
 {
-  "short_name": "Forge",
-  "name": "Forge",
+  "short_name": "Caarya HQ",
+  "name": "Caarya HQ",
   "icons": [
     {
       "src": "assets/favicon/favicon-32x32.png",
@@ -18,16 +18,16 @@
       "type": "image/png"
     },
     {
-      "src": "assets/favicon/android-chrome-256x256.png",
-      "sizes": "256x256",
+      "src": "assets/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "shortcuts": [
     {
-      "name": "Hector Home",
+      "name": "Caarya HQ",
       "description": "",
-      "url": "/home",
+      "url": "/today",
       "icons": [
         {
           "src": "assets/favicon/favicon-32x32.png",

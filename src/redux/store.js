@@ -8,6 +8,7 @@ import goalsReducer from "./goal";
 import shareablesReducer from "./shareables";
 import sourcingDriveReducer from "./sourcingDrive";
 import collegeReducer from "./college";
+import tracksReducer from "./tracks";
 import dropdown from "./dropdown";
 
 const store = configureStore({
@@ -20,6 +21,7 @@ const store = configureStore({
     sourcingDrive: sourcingDriveReducer,
     college: collegeReducer,
     dropdown: dropdown,
+    tracks: tracksReducer,
     goals: goalsReducer,
   },
 });

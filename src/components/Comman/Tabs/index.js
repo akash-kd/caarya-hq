@@ -27,7 +27,7 @@ function Tabs({ tabs, selectedTab, setSelectedTab }) {
 
   return (
     <div className="pt-5 pb-2 relative">
-      <div className="flex flex-row items-center justify-start overflow-x-auto">
+      <div className="flex flex-row items-center justify-center overflow-x-auto">
         {tabs.map((item, idx) => {
           return (
             <div
@@ -43,7 +43,7 @@ function Tabs({ tabs, selectedTab, setSelectedTab }) {
               <div
                 className={`flex px-3 pb-1 flex-row cursor-pointer text-xs lg:text-sm items-end justify-center font-lato text-center hover:font-bold ${
                   selectedTab == item?.value
-                    ? "font-semibold text-primary-yellow-700"
+                    ? "font-semibold text-primary-red-darker"
                     : "font-semibold text-primary-neutral-400"
                 }`}
               >
@@ -55,7 +55,7 @@ function Tabs({ tabs, selectedTab, setSelectedTab }) {
       </div>
 
       <span
-        className="absolute bottom-1 rounded-sm block h-[3px] bg-primary-yellow-700 transition-all duration-300"
+        className="absolute bottom-1 rounded-sm block h-[3px] bg-primary-red-darker transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       />
     </div>

@@ -11,7 +11,7 @@ function TabBar() {
         className={`w-full fixed z-30 bottom-0 right-0 tapbar left-0 lg:hidden transform transition-all ease-in-out duration-300 font-karla`}
       >
         <div className=" w-full bottom-0 max-w-sm mx-auto">
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-5 gap-2 px-2">
             {mobileBottomNav.map((item, idx) => {
               const centerNavIdx = Math.floor(mobileBottomNav.length / 2);
 
@@ -24,8 +24,9 @@ function TabBar() {
                     }
                   }}
                   className={`relative py-2 px-1 ${
+                    item?.path !== "/today" &&
                     window.location.pathname.includes(item?.path)
-                      ? "bg-primary-yellow-30"
+                      ? "bg-primary-red-lightest"
                       : ""
                   }`}
                 >
@@ -35,14 +36,34 @@ function TabBar() {
                       "absolute inset-x-0 -translate-y-3"
                     } ${
                       window.location.pathname.includes(item?.path)
-                        ? "text-primary-yellow-darker font-bold"
+                        ? "text-primary-red-darker font-bold"
                         : "text-primary-gray-280 font-normal"
                     } `}
                   >
                     {item?.icon ? (
                       React.cloneElement(item?.icon, {})
                     ) : idx === centerNavIdx ? (
-                      <PlusIcon className="rounded-full p-2 h-9 w-9 scale-110 mb-1 -mt-0.5 shadow-md bg-primary-yellow-subtle text-primary-yellow-darker" />
+                      <div
+                        className={`w-12 h-12 -mt-2.5 flex flex-row items-center justify-center rounded-full border border-primary-red-lightest ${
+                          window.location.pathname.includes(item?.path)
+                            ? "bg-white"
+                            : "bg-[#ffe9e5]"
+                        } `}
+                      >
+                        <img
+                          src={
+                            window.location.pathname.includes(item?.path)
+                              ? item?.selectedImage
+                              : item?.image
+                          }
+                          alt=""
+                          className={`${
+                            idx === centerNavIdx
+                              ? "h-9 w-9 drop-shadow-md"
+                              : "h-6 w-6"
+                          }`}
+                        />
+                      </div>
                     ) : (
                       <img
                         src={
@@ -53,7 +74,7 @@ function TabBar() {
                         alt=""
                         className={`${
                           idx === centerNavIdx
-                            ? "h-9 w-9 scale-150 drop-shadow-md -mt-0.5"
+                            ? "h-9 w-9 scale-[1.3] drop-shadow-md -mt-[1px]"
                             : "h-6 w-6"
                         }`}
                       />

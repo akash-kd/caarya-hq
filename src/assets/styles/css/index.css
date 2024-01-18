@@ -176,8 +176,8 @@ textarea:focus {
   -moz-backdrop-filter: blur(5px) !important; }
 
 .top-nav {
-  background: #edd486;
-  background: linear-gradient(133deg, #edd486 0%, #fbf6e5 100%); }
+  background: #ffe9e5;
+  box-shadow: 0px 10px 20px -13px rgba(0, 0, 0, 0.15); }
 
 .tapbar {
   background: #ffffff;

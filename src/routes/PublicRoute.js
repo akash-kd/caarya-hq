@@ -13,7 +13,7 @@ const publicRoutes = [
     component: () =>
       localStorage.getItem("token") ? (
         checkAppAccess() ? (
-          <Redirect to="/dashboard" />
+          <Redirect to="/today" />
         ) : (
           <Redirect to="/accessDenied" />
         )

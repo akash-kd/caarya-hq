@@ -8,6 +8,7 @@ import FocusArea from "pages/FocusArea";
 import ProjectsPage from "pages/Project";
 import Shareables from "pages/Shareables";
 import Chronicles from "pages/Chronicles";
+import Today from "pages/Today";
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
@@ -33,6 +34,13 @@ const privateRoutes = [
     tab: "Shareables",
     path: "/shareables",
     component: Shareables,
+  },
+  {
+    name: "Today",
+    description: "",
+    tab: "Today",
+    path: "/today",
+    component: Today,
   },
   {
     name: "Chronicles",
@@ -62,7 +70,7 @@ const privateRoutes = [
     component: () =>
       localStorage.getItem("token") ? (
         checkAppAccess() ? (
-          <Redirect to="/dashboard" />
+          <Redirect to="/today" />
         ) : (
           <Redirect to="/accessDenied" />
         )
