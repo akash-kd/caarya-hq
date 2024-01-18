@@ -1,0 +1,78 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["jsx-a11y", "prettier", "react"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-useless-escape": "off",
+    "no-tabs": ["warn", { "allowIndentationTabs": true }],
+    "linebreak-style": ["off", "windows"],
+    "dot-notation": "off",
+    "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+    "semi": ["warn", "always"],
+    "no-param-reassign": "off",
+    "no-else-return": "off",
+    "no-lonely-if": "off",
+    "no-console": "off",
+    "no-unused-vars": "warn",
+    "prefer-template": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "func-names": "off",
+    "radix": ["warn", "as-needed"],
+    "no-empty": "warn",
+    "eqeqeq": "off",
+    "no-empty-function": "warn",
+    "default-case": "warn",
+    "brace-style": "warn",
+    "camelcase": "warn",
+    "array-callback-return": "off",
+    "no-nested-ternary": "off",
+    "no-use-before-define": "off",
+    "no-fallthrough": "off",
+    "no-unneeded-ternary": "off",
+    "no-case-declarations": "off",
+    "no-empty-pattern": "off",
+    "react/no-unescaped-entities": "off",
+    // "capitalized-comments": ["warn", "always"],
+    "react/require-default-props": "off",
+    "jsx-a11y/no-onchange": "off",
+    "jsx-a11y/heading-has-content": "off",
+    "react/no-unknown-property": "warn",
+    "react/jsx-key": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "warn",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-boolean-value": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react-hooks/exhaustive-deps": "off",
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "off"
+  }
+}
