@@ -13,9 +13,9 @@ function MobileDashboard({ data }) {
     <div>
       <div className="space-y-10 pt-2.5 px-4">
         <div className="flex flex-col items-start space-y-2">
-          <p className="text-primary-neutral-400 font-lato text-xs font-semibold">
+          {/* <p className="text-primary-neutral-400 font-lato text-xs font-semibold">
             This Week
-          </p>
+          </p> */}
           <div className="grid grid-cols-2 gap-6 w-full">
             <Sessions list={data?.sessionsCount} />
             <ClockIns {...data?.sessionTime} />
