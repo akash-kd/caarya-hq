@@ -15,11 +15,17 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { showToast } from "redux/toaster";
 import { TaskStatus } from "helpers/task";
 import ChronosButton from "components/Comman/Buttons";
-import { getProjectName, ProjectTypes } from "helpers/projects";
+import {
+  getProjectName,
+  PROJECT_CATEGORY,
+  ProjectTypes,
+} from "helpers/projects";
 import EmptyState from "components/Comman/EmptyState";
 import * as GoalAPI from "config/APIs/task/goal";
 import DateSelect from "components/Comman/Inputs/Date";
 import DropdownInputForObject from "components/Comman/Inputs/DropdownInputForObject";
+import { fetchAllgoals } from "redux/goal";
+import Toggle from "components/Comman/Inputs/Toggle";
 
 const defaultValue = {
   title: "",
@@ -33,14 +39,12 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
 
   const [fieldErrors, setFieldErrors] = useState({});
   const [creating, setCreating] = useState(false);
-  const [profiles, setProfiles] = useState([]);
-  const [selectedProfiles, setSelectedProfiles] = useState([]);
-
+  const profiles = useSelector((state) => state?.dropdown?.users?.list);
   const [projectAll, setProjectAll] = useState(false);
   const [projectType, setProjectType] = useState("all");
   const [showStep, setShowStep] = useState(1);
   const projects = useSelector((state) => state.projects.list);
-  const squad = useSelector((state) => state.user.squadList);
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     let isMounted = true;
@@ -92,6 +96,8 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
         ...newTaskData,
       };
 
+      if (!body?.ownerId) body["ownerId"] = user?.id;
+
       const response = await GoalAPI.createGoal(body);
 
       closeModal();
@@ -99,6 +105,7 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
       setNewTaskData(defaultValue);
       setShowStep(1);
       setNewTaskData(defaultValue);
+      dispatch(fetchAllgoals());
 
       showSuccessNotification("Task created successfully!");
     } catch (err) {
@@ -310,7 +317,7 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                             />
                           </Disclosure.Button>
                         </div>
-                        {/* <div className="flex flex-row items-center justify-end">
+                        <div className="flex flex-row items-center justify-end">
                           {open && (
                             <Toggle
                               enabled={projectAll}
@@ -319,12 +326,12 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                               labelLeft
                             />
                           )}
-                        </div> */}
+                        </div>
                       </div>
                       <Disclosure.Panel className="w-full mt-5 space-y-5 ">
                         {newTaskData?.projectId && (
                           <div className="w-full flex flex-row">
-                            <div className="flex flex-row items-center justify-between rounded-md p-1.5 bg-primary-yellow-lightest">
+                            <div className="flex flex-row items-center justify-between rounded-md p-1.5 bg-primary-red-lightest">
                               <div className="flex flex-row items-center justify-between mr-2.5">
                                 <img
                                   src={
@@ -352,7 +359,7 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                                     project: null,
                                   });
                                 }}
-                                className={`h-3 w-3 transform text-primary-yellow-lighter`}
+                                className={`h-3 w-3 transform text-primary-red-lighter`}
                                 aria-hidden="true"
                               />
                             </div>
@@ -371,30 +378,30 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                                 <div
                                   className={`flex flex-row cursor-pointer text-sm py-1 text-primary-gray-1000 font-lato items-end justify-center text-center ${
                                     projectType == "all"
-                                      ? "px-2 rounded-full bg-primary-yellow-lighter font-medium"
+                                      ? "px-2 rounded-full bg-primary-red-lighter font-medium"
                                       : "font-normal"
                                   }`}
                                 >
                                   All
                                 </div>
                               </div>
-                              {ProjectTypes?.map((item) => {
+                              {PROJECT_CATEGORY?.map((item) => {
                                 return (
                                   <div
                                     onClick={() => {
-                                      setProjectType(item?.value);
+                                      setProjectType(item?.name);
                                     }}
-                                    key={item?.value}
+                                    key={item?.name}
                                     className=""
                                   >
                                     <div
                                       className={`flex flex-row cursor-pointer text-sm py-1 text-primary-gray-1000 font-lato items-end justify-center text-center ${
-                                        projectType == item?.value
-                                          ? "px-2 rounded-full bg-primary-yellow-lighter font-medium"
+                                        projectType == item?.name
+                                          ? "px-2 rounded-full bg-primary-red-lighter font-medium"
                                           : "font-normal"
                                       }`}
                                     >
-                                      {item?.label?.replace("Projects", "")}
+                                      {item?.name}
                                     </div>
                                   </div>
                                 );
@@ -402,72 +409,84 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                             </div>
                           </div>
                         )}
-                        <div className=" min-h-70vh max-h-70vh overflow-y-auto mt-1">
+                        <div className="h-[40vh] overflow-y-auto mt-1">
                           <div className="grid grid-cols-2 gap-5">
                             {projects?.map((p) => {
                               if (
                                 !projectAll ||
                                 projectType == "all" ||
                                 (projectType !== "all" &&
-                                  p?.type == projectType)
+                                  p?.category == projectType)
                               )
-                                return (
-                                  <div
-                                    onClick={() => {
-                                      setNewTaskData({
-                                        ...newTaskData,
-                                        projectId: p?.id,
-                                        project: p,
-                                      });
-                                    }}
-                                    className={`flex flex-col items-center rounded-10px relative p-2.5 w-full  ${
-                                      projects?.find(
-                                        (p) => p?.id === newTaskData?.projectId
-                                      )?.id === p?.id
-                                        ? "bg-primary-yellow-lightest font-bold"
-                                        : "bg-white font-normal"
-                                    }`}
-                                  >
-                                    <CheckCircleIcon
-                                      className={`h-5 w-5 absolute top-3 right-3 components-cards-task-checkcircle ${
+                                if (
+                                  projectAll ||
+                                  (!projectAll &&
+                                    JSON.stringify(p?.members)?.includes(
+                                      user?.id
+                                    ))
+                                )
+                                  return (
+                                    <div
+                                      onClick={() => {
+                                        setNewTaskData({
+                                          ...newTaskData,
+                                          projectId: p?.id,
+                                          project: p,
+                                        });
+                                      }}
+                                      className={`flex flex-col items-center rounded-10px relative p-2.5 w-full  ${
                                         projects?.find(
                                           (p) =>
                                             p?.id === newTaskData?.projectId
                                         )?.id === p?.id
-                                          ? "visible"
-                                          : "invisible"
+                                          ? "bg-primary-red-lightest font-bold"
+                                          : "bg-white font-normal"
                                       }`}
-                                    />
-                                    <PlusCircleIcon
-                                      className={` text-primary-gray-350 h-5 w-5 absolute top-3 right-3 ${
-                                        projects?.find(
-                                          (p) =>
-                                            p?.id === newTaskData?.projectId
-                                        )?.id === p?.id
-                                          ? "invisible"
-                                          : "visible"
-                                      }`}
-                                    />
-                                    <img
-                                      className="h-9 w-9 rounded object-cover"
-                                      src={
-                                        p?.image?.url ||
-                                        "/assets/images/icons/rocket.png"
-                                      }
-                                      alt=""
-                                    />
-                                    <p className="font-lato text-sm text-center line-clamp-2 text-primary-gray-1000 mt-2.5">
-                                      {getProjectName(p)}
-                                    </p>
-                                  </div>
-                                );
+                                    >
+                                      <CheckCircleIcon
+                                        className={`h-5 w-5 absolute top-3 right-3 components-cards-task-checkcircle ${
+                                          projects?.find(
+                                            (p) =>
+                                              p?.id === newTaskData?.projectId
+                                          )?.id === p?.id
+                                            ? "visible"
+                                            : "invisible"
+                                        }`}
+                                      />
+                                      <PlusCircleIcon
+                                        className={` text-primary-gray-350 h-5 w-5 absolute top-3 right-3 ${
+                                          projects?.find(
+                                            (p) =>
+                                              p?.id === newTaskData?.projectId
+                                          )?.id === p?.id
+                                            ? "invisible"
+                                            : "visible"
+                                        }`}
+                                      />
+                                      <img
+                                        className="h-9 w-9 rounded object-cover"
+                                        src={
+                                          p?.image?.url ||
+                                          "/assets/images/icons/rocket.png"
+                                        }
+                                        alt=""
+                                      />
+                                      <p className="font-lato text-sm text-center line-clamp-2 text-primary-gray-1000 mt-2.5">
+                                        {getProjectName(p)}
+                                      </p>
+                                    </div>
+                                  );
                             })}
                             {projects?.filter(
                               (p) =>
-                                !projectAll ||
-                                projectType == "all" ||
-                                (projectType !== "all" &&
-                                  p?.type == projectType)
+                                (!projectAll &&
+                                  JSON.stringify(p?.members)?.includes(
+                                    user?.id
+                                  )) ||
+                                (projectAll &&
+                                  (projectType == "all" ||
+                                    (projectType !== "all" &&
+                                      p?.category == projectType)))
                             )?.length == 0 && (
                               <div className="col-span-2">
                                 <EmptyState
@@ -488,13 +507,13 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
 
           {showStep === 3 && (
             <div className="w-full space-y-5 px-5">
-              {!ownerId && (
+              {/* {!ownerId && (
                 <div className="flex flex-col items-start w-full">
                   <label
                     htmlFor="Owners"
                     className="text-2xs text-primary-gray-450 leading-3 mb-2.5 font-lato font-normal"
                   >
-                    <b>Assign to</b> owner
+                    <b>Assign to</b>
                   </label>
                   <div className="w-full">
                     <DropdownInputForObject
@@ -515,7 +534,7 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
                     />
                   </div>
                 </div>
-              )}
+              )} */}
               <div className="flex flex-col items-start w-full">
                 <label
                   htmlFor="Owners"
@@ -557,7 +576,7 @@ function GoalCreate({ closeModal, isOpen, onCreate, project, goal, ownerId }) {
               onClick={() => {
                 setShowStep(showStep - 1);
               }}
-              className=" text-primary-yellow-darkest h-8 poppins font-normal text-sm cursor-pointer transform transition ease-in-out duration-150 hover:scale-105"
+              className=" text-primary-red-darkest h-8 poppins font-normal text-sm cursor-pointer transform transition ease-in-out duration-150 hover:scale-105"
             />
           )}
 

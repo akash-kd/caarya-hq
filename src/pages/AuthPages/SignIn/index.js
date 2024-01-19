@@ -5,7 +5,7 @@ function SignIn() {
   const history = useHistory();
   return (
     <section
-      className={`relative min-h-[100vh] max-w-[100vw] overflow-y-auto flex flex-col items-center lg:justify-center lg:space-y-14 space-y-[50px] px-4 py-6`}
+      className={`relative min-h-[100vh] max-w-[100vw] overflow-y-auto flex flex-col items-center lg:justify-center lg:space-y-14 space-y-[50px] px-4 py-6 mt-[2vh]`}
     >
       <div className="flex flex-col items-center space-y-1.5 lg:space-y-3">
         <img

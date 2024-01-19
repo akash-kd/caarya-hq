@@ -46,7 +46,7 @@ function Chronicles() {
               }}
               className={`px-1 py-2 space-y-1 flex flex-col items-center font-lato text-3xs ${
                 selectedCategory == category?.value
-                  ? "text-white font-semibold bg-primary-yellow-dark"
+                  ? "text-white font-semibold bg-primary-red-medium"
                   : "text-primary-gray-800 font-light"
               }`}
             >

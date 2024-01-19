@@ -19,6 +19,7 @@ import { refreshToken } from "config/APIs";
 import { fetchAllgoals } from "redux/goal";
 import LaptopState from "layout/LaptopState";
 import { fetchAllProjects } from "redux/projects";
+import { fetchAllUsers } from "redux/dropdown";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
       dispatch(fetchAllProjects());
 
       dispatch(fetchAllgoals());
+      dispatch(fetchAllUsers());
     }
 
     return () => {

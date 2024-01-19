@@ -54,7 +54,7 @@ export default function DropdownInputForObject({
               </label>
             </div>
             <div className="relative">
-              <Listbox.Button className="bg-white rounded-10px relative w-full py-1.5 pl-3.5 pr-10 text-left cursor-default placeholder:text-primary-gray-350 focus:outline-none focus:ring-transparent focus:border-transparent">
+              <Listbox.Button className="bg-white z-[1000] rounded-10px relative w-full py-1.5 pl-3.5 pr-10 text-left cursor-default placeholder:text-primary-gray-350 focus:outline-none focus:ring-transparent focus:border-transparent">
                 <span className="block truncate text-primary-gray-450 font-lato font-normal text-xs leading-6 components-custom-input-dropdowninput-span">
                   {list?.find((e) => e?.value == details[field])?.label ||
                     details[field] ||

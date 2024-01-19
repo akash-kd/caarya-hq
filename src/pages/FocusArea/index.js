@@ -1,4 +1,10 @@
-import { Clock, Crosshair, SignOut, Sliders } from "@phosphor-icons/react";
+import {
+  Clock,
+  Crosshair,
+  SignOut,
+  Sliders,
+  Plus,
+} from "@phosphor-icons/react";
 import FocusGoalCard from "components/FocusArea/FocusGoalCard";
 import ClockInModal from "components/FocusArea/Modal/ClockInModal";
 import ClockOutModal from "components/FocusArea/Modal/ClockOutModal";
@@ -226,7 +232,7 @@ function FocusArea() {
                 alt=""
                 className="w-full object-cover h-6 -mt-5"
               />
-              <div className="bg-white p-4 flex flex-col space-y-4 min-h-[75vh]">
+              <div className="bg-white p-4 flex flex-col space-y-4 h-[75vh] pb-20 overflow-y-auto">
                 <div className="flex flex-col items-start space-y-2">
                   <h1 className="text-primary-neutral-500 font-lato text-sm font-semibold leading-5">
                     Goals for you to pick up in this time frame
@@ -257,7 +263,9 @@ function FocusArea() {
           )}
         </div>
         <div
-          onClick={() => setOpenFocusGoals(true)}
+          onClick={() => {
+            history.push("/focusGoals");
+          }}
           className="z-50 fixed bottom-16 right-4 rounded-full shadow-xl bg-primary-neutral-900 text-white flex flex-row items-center justify-center w-12 h-12"
         >
           <Sliders size={24} />

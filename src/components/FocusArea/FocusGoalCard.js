@@ -48,9 +48,7 @@ function FocusGoalCard({ item, onFocus, focused }) {
               <p className="font-light">{item?.track?.title}</p>
             </div>
           ) : (
-            <div className="flex flex-row items-center space-x-1 text-primary-gray-300 text-3xs font-lato">
-              <p className="font-light">No Track</p>
-            </div>
+            <div className="flex flex-row items-center space-x-1 text-primary-gray-300 text-3xs font-lato"></div>
           )}
           <div className="flex flex-row items-center space-x-2">
             <StatusDropDown
@@ -60,10 +58,10 @@ function FocusGoalCard({ item, onFocus, focused }) {
                 setStatus(val);
               }}
             />
-            <div className="py-1 flex flex-row items-center space-x-2 rounded text-primary-gray-280 text-xs font-lato font-light">
+            {/* <div className="py-1 flex flex-row items-center space-x-2 rounded text-primary-gray-280 text-xs font-lato font-light">
               <TShirt size={16} />
               <p>{item?.metaData?.hours} h</p>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex flex-col items-start space-y-2 px-2">
@@ -75,14 +73,14 @@ function FocusGoalCard({ item, onFocus, focused }) {
           </p>
         </div>
         <div className="flex flex-row items-center space-x-2 px-2">
-          {item?.project?.image ? (
+          {/* {item?.project?.image ? (
             <img
               src={item?.project?.image?.url}
               className="bg-primary-gray-100 rounded w-3 h-3 object-contain"
             />
           ) : (
             <div className="bg-primary-gray-100 rounded w-3 h-3" />
-          )}
+          )} */}
           <p className="text-primary-gray-300 text-2xs font-lato font-light">
             {item?.project?.title}
           </p>

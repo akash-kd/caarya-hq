@@ -8,10 +8,10 @@ import AppLinks from "components/Shareables/AppLinks";
 
 const tabs = [
   // { label: "Knowledge", value: "knowledge" },
-  { label: "Drives", value: "drives" },
-  { label: "FYI", value: "fyi" },
-  { label: "Kits", value: "kits" },
-  { label: "Links", value: "links" },
+  // { label: "Drives", value: "drives" },
+  // { label: "FYI", value: "fyi" },
+  { label: "Docs & Sheets", value: "kits" },
+  { label: "Quick Links", value: "links" },
 ];
 function Shareables() {
   const [search, setSearch] = useState({
@@ -19,7 +19,7 @@ function Shareables() {
     searchText: "",
     isSearch: false,
   });
-  const [selectedTab, setSelectedTab] = useState("drives");
+  const [selectedTab, setSelectedTab] = useState("kits");
 
   useEffect(() => {
     let isMounted = true;

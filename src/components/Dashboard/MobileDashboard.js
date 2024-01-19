@@ -1,5 +1,5 @@
 import { ArrowRight } from "@phosphor-icons/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ClockInHistory from "./Components/ClockInHistory";
 import Sessions from "./Components/Sessions";
@@ -8,19 +8,32 @@ import { dashboardFocus } from "helpers/constants/dashboard";
 
 function MobileDashboard({ data }) {
   const history = useHistory();
-
+  const user = useSelector((state) => state?.user?.user);
+  const allGoals = useSelector((state) => state.goals?.goals);
+  const getGoals = (focus) => {
+    let temp = [];
+    temp = allGoals?.filter((i) => i?.focusIn == focus);
+    return temp;
+  };
   return (
     <div>
       <div className="space-y-10 pt-2.5 px-4">
-        <div className="flex flex-col items-start space-y-2">
-          {/* <p className="text-primary-neutral-400 font-lato text-xs font-semibold">
-            This Week
-          </p> */}
-          <div className="grid grid-cols-2 gap-6 w-full">
-            <Sessions list={data?.sessionsCount} />
-            <ClockIns {...data?.sessionTime} />
+        <div className="p-4 rounded-xl shadow bg-white flex flex-row items-center space-x-2 w-full">
+          <div className="flex flex-col space-y-2 w-full">
+            <p className="text-primary-neutral-800 font-lato text-base font-semibold">
+              Hello,
+            </p>{" "}
+            <p className="text-primary-neutral-800 font-lato text-3xl font-semibold">
+              {user?.first_name}
+            </p>
           </div>
+          <img
+            src={user?.image?.url}
+            alt=""
+            className="w-14 h-14 rounded-full object-cover"
+          />
         </div>
+
         <div className="bg-white rounded-xl shadow p-4 flex flex-col space-y-8">
           <div className="w-full flex flex-row items-center justify-between">
             <p className="text-primary-neutral-800 font-lato text-base font-semibold">
@@ -60,9 +73,7 @@ function MobileDashboard({ data }) {
                     </div>
                     <div className="flex flex-col items-end px-4">
                       <p className="text-primary-neutral-800 font-lato text-[32px] leading-[48px] font-semibold">
-                        {data?.goalsFocusIn?.find(
-                          (i) => i?.focusIn == item?.name
-                        )?.goalCount || 0}
+                        {getGoals(item?.name)?.length || 0}
                       </p>
                       <p className="text-primary-neutral-800 font-lato text-xs font-light">
                         Goals in focus
@@ -82,7 +93,7 @@ function MobileDashboard({ data }) {
             </p>
             <div
               onClick={() => {
-                history.push("/goalHub");
+                history.push("/focusGoals");
               }}
               className="text-xs text-secondary-indigo-700 font-lato font-semibold underline underline-offset-2 flex flex-row items-center space-x-1"
             >

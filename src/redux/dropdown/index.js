@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getAllProducts } from "config/APIs/chronicles";
 import { findAll } from "config/APIs/college";
 import { getAllEventCategory, getAllEventTypes } from "config/APIs/events";
+import { getAllUsersAdmin } from "config/APIs/users";
 
 const initialState = {
   eventType: { fetching: true, list: [] },
+  users: { fetching: true, list: [] },
   colleges: { fetching: true, list: [] },
   products: { fetching: true, list: [] },
   eventCategory: { fetching: true, list: [] },
@@ -25,6 +27,27 @@ export const dropdown = createSlice({
 export const { updateReduxDropdownList } = dropdown.actions;
 export default dropdown.reducer;
 
+export function fetchAllUsers() {
+  return async (dispatch) => {
+    try {
+      const response = await getAllUsersAdmin({ is_active: true });
+
+      if (response.status === 200) {
+        let data = response.data.data.response;
+
+        // Dispatching user data to redux-store
+        dispatch(
+          updateReduxDropdownList({
+            field: "users",
+            list: data,
+          })
+        );
+      }
+    } catch (err) {
+      console.log("user fetching error", err);
+    }
+  };
+}
 export function fetchEventType() {
   return async (dispatch) => {
     try {

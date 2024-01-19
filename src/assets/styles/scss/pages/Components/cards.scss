@@ -14,3 +14,35 @@
   box-shadow: 0px 0px 10px 3px rgba(128, 95, 5, 0.11);
   border-radius: $radius-internal-container;
 }
+
+.members-card {
+  background: #ffffff;
+  /* Neutral/100 */
+
+  border: 1px solid #f3f2f2;
+  /* Shadow-md */
+
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  .bg-circle {
+    clip-path: circle(50% at -5% 30%);
+    border-radius: 8px;
+    &.yellow {
+      background: linear-gradient(221.64deg, #f1c21b 24.77%, #fdeecd 59.38%);
+    }
+    &.red {
+      background: linear-gradient(221.64deg, #db2b39 24.77%, #f7d1d4 59.38%);
+    }
+    &.purple {
+      background: linear-gradient(221.64deg, #a193f2 24.77%, #eaeaf9 59.38%);
+    }
+    &.green {
+      background: linear-gradient(221.64deg, #75dd67 24.77%, #d8f3d7 59.38%);
+    }
+    &.aqua {
+      background: linear-gradient(221.64deg, #a5f2f2 24.77%, #c6f8f9 59.38%);
+    }
+  }
+}

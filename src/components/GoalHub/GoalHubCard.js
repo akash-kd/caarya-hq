@@ -20,8 +20,9 @@ import { getTotalTime } from "helpers/utils/common/clock";
 import { goalFocusTime } from "helpers/constants/goals";
 import StatusDropDown from "components/Tasks/Card/StatusDropDown";
 import { getGoalPriority, getImpUrgent } from "helpers/utils/goal";
-import { updateGoal } from "config/APIs/task/goal";
+import { deleteGoal, updateGoal } from "config/APIs/task/goal";
 import { TRACK_CATEGORY, deafultTracks } from "helpers/constants/tracks";
+import ConfirmModal from "components/Modals/Common/ConfirmModal";
 
 function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
   const user = useSelector((state) => state?.user?.user);
@@ -29,6 +30,7 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
   const [status, setStatus] = useState();
   const [important, setImportant] = useState(false);
   const [urgent, setUrgent] = useState(false);
+  const [deletee, setDeletee] = useState(false);
 
   useEffect(() => {
     setStatus(item?.status);
@@ -53,6 +55,16 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      await deleteGoal({ goalId: item?.id });
+      onUpdate();
+    } catch (err) {
+      console.log("Error", err);
+      console.log(err?.response);
+    }
+  };
+
   return (
     <div
       className="rounded-lg bg-opacity-5"
@@ -62,6 +74,15 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
             ?.color || "#fff",
       }}
     >
+      <ConfirmModal
+        isOpen={deletee}
+        closeModal={() => setDeletee(false)}
+        text={<>Are you sure you want to delete {item?.title}?</>}
+        onAccept={() => {
+          handleDelete();
+          setDeletee(false);
+        }}
+      />
       {plannerMode ? (
         <div className="border border-primary-gray-200 rounded-tl-[48px] rounded-b-lg rounded-tr-lg bg-white shadow-md p-4 space-y-3">
           <div className="flex flex-row items-center justify-between">
@@ -126,7 +147,7 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
           </div>
         </div>
       ) : (
-        <div className="border relative border-primary-gray-200 rounded-tl-[48px] rounded-b-lg rounded-tr-lg bg-white shadow-md p-4 space-y-4">
+        <div className="border relative border-primary-gray-200 rounded-tl-lg rounded-b-lg rounded-tr-lg bg-white shadow-md p-4">
           <div className="flex flex-row items-center justify-between">
             {item?.track ? (
               <div className="flex flex-row items-center space-x-1 text-primary-gray-300 text-3xs font-lato">
@@ -139,9 +160,7 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
                 <p className="font-light">{item?.track?.title}</p>
               </div>
             ) : (
-              <div className="flex flex-row items-center space-x-1 text-primary-gray-300 text-3xs font-lato">
-                <p className="font-light">No Track</p>
-              </div>
+              <div></div>
             )}
             <div className="flex flex-row items-center space-x-2">
               {/* <div className="px-1 py-1 rounded border border-primary-gray-200 text-primary-gray-350 text-3xs font-lato font-semibold">
@@ -161,11 +180,13 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
                 </div>
               ) : (
                 <>
-                  <div className="flex flex-row items-center space-x-1 px-1 py-1 rounded border border-primary-yellow-medium text-primary-yellow-medium text-3xs font-lato font-semibold">
-                    <Fire size={12} />
-                    <p className="">P{item?.priority || "?"}</p>
-                  </div>
-                  <Menu as="div" className="relative block text-left">
+                  {item?.priority && (
+                    <div className="flex flex-row items-center space-x-1 px-1 py-1 rounded border border-primary-yellow-medium text-primary-yellow-medium text-3xs font-lato font-semibold">
+                      <Fire size={12} />
+                      <p className="">P{item?.priority || "?"}</p>
+                    </div>
+                  )}
+                  <Menu as="div" className="relative block text-left -mb-2">
                     <Menu.Button className="">
                       <DotsThreeOutlineVertical size={16} weight="fill" />
                     </Menu.Button>
@@ -188,8 +209,11 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
                             return (
                               <Menu.Item>
                                 {({ active }) => (
-                                  <div className="text-primary-gray-1000 font-lato font-normal block px-4 py-2 text-2xs cursor-pointer">
-                                    Edit
+                                  <div
+                                    onClick={() => setDeletee(true)}
+                                    className="text-red-500 font-lato font-normal block px-4 py-2 text-2xs cursor-pointer"
+                                  >
+                                    Delete
                                   </div>
                                 )}
                               </Menu.Item>
@@ -204,7 +228,7 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
             </div>
           </div>
           <div className="flex flex-col items-start space-y-2 px-2">
-            <h1 className="text-primary-gray-300 font-lato text-xs font-semibold">
+            <h1 className="text-primary-gray-300 mt-2.5 font-lato text-xs font-semibold">
               {item?.title}
             </h1>
             <p className="text-primary-gray-300 font-lato text-xs font-light">
@@ -212,21 +236,21 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
             </p>
           </div>
           <div className="flex flex-row items-center space-x-2 px-2">
-            {item?.project?.image ? (
+            {/* {item?.project?.image ? (
               <img
                 src={item?.project?.image?.url}
                 className="bg-primary-gray-100 rounded w-3 h-3 object-contain"
               />
             ) : (
               <div className="bg-primary-gray-100 rounded w-3 h-3" />
-            )}
+            )} */}
             <p className="text-primary-gray-300 text-2xs font-lato font-light">
               {item?.project?.title}
             </p>
           </div>
 
           {item?.sessions?.length > 0 && (
-            <div className="flex flex-row items-center space-x-2 px-2">
+            <div className="flex pt-2.5 flex-row items-center space-x-2 px-2">
               <div className="px-2 py-1 flex flex-row items-center space-x-2 rounded border border-primary-gray-200 text-primary-gray-600 text-2xs font-lato font-light">
                 <Timer size={16} color="#816FE9" />
                 <p>

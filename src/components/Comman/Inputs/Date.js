@@ -70,7 +70,7 @@ function DateSelect({ date = null, setDate, type, canChange = true }) {
             }}
             className={`flex flex-row items-center cursor-pointer rounded primary-shadow justify-center space-x-1 sm:space-x-2.5 py-2 px-2 border col-span-2 z-10 ${
               selectedTab == 0
-                ? "bg-primary-yellow-lightest border-black"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-gray-200"
             }`}
           >
@@ -94,7 +94,7 @@ function DateSelect({ date = null, setDate, type, canChange = true }) {
             }}
             className={`flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 py-2 px-2 border col-span-2 ${
               selectedTab == 1
-                ? "bg-primary-yellow-lightest border-black"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-gray-200"
             }`}
           >
@@ -108,11 +108,11 @@ function DateSelect({ date = null, setDate, type, canChange = true }) {
               {type == "goal" ? "This month" : "This week"}
             </h1>
           </div>
-          <div
+          {/* <div
             onClick={() => canChange && setCalendarOpen(true)}
             className={`flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 py-2 px-2 border col-span-2 ${
               selectedTab == 2
-                ? "bg-primary-yellow-lightest border-black"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-gray-200"
             }`}
           >
@@ -125,7 +125,7 @@ function DateSelect({ date = null, setDate, type, canChange = true }) {
             >
               Set a date
             </h1>
-          </div>
+          </div> */}
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DesktopDatePicker
               open={calendarOpen}
@@ -245,7 +245,7 @@ function DateSelectOptions({ date = null, setDate, canChange = true }) {
             }}
             className={`m-1 flex flex-row items-center cursor-pointer rounded primary-shadow justify-center space-x-1 sm:space-x-2.5 px-2 py-1 border col-span-2 z-10 ${
               selectedTab == 0
-                ? "bg-primary-yellow-30 border-primary-yellow-medium"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-primary-gray-200"
             }`}
           >
@@ -266,7 +266,7 @@ function DateSelectOptions({ date = null, setDate, canChange = true }) {
             }}
             className={`m-1 flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 px-2 py-1 border col-span-2 ${
               selectedTab == 1
-                ? "bg-primary-yellow-30 border-primary-yellow-medium"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-primary-gray-200"
             }`}
           >
@@ -287,7 +287,7 @@ function DateSelectOptions({ date = null, setDate, canChange = true }) {
             }}
             className={`m-1 flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 px-2 py-1 border col-span-2 ${
               selectedTab == 2
-                ? "bg-primary-yellow-30 border-primary-yellow-medium"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-primary-gray-200"
             }`}
           >
@@ -308,7 +308,7 @@ function DateSelectOptions({ date = null, setDate, canChange = true }) {
             }}
             className={`m-1 flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 px-2 py-1 border col-span-2 ${
               selectedTab == 3
-                ? "bg-primary-yellow-30 border-primary-yellow-medium"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-primary-gray-200"
             }`}
           >
@@ -326,7 +326,7 @@ function DateSelectOptions({ date = null, setDate, canChange = true }) {
             onClick={() => canChange && setCalendarOpen(true)}
             className={`m-1 flex flex-row items-center cursor-pointer primary-shadow rounded justify-center space-x-1 sm:space-x-2.5 px-2 py-1 border col-span-2 ${
               selectedTab == 4
-                ? "bg-primary-yellow-30 border-primary-yellow-medium"
+                ? "bg-primary-red-lightest border-primary-red-medium"
                 : "bg-white border-primary-gray-200"
             }`}
           >

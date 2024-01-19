@@ -10,9 +10,12 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 function ClockInHistory({ list }) {
+  const history = useHistory();
+
   const [labels, setLabels] = useState([
     "16",
     "17",
@@ -95,7 +98,7 @@ function ClockInHistory({ list }) {
           }}
           className="text-xs text-secondary-indigo-700 font-lato font-semibold underline underline-offset-2 flex flex-row items-center space-x-1"
         >
-          <p>View Journal</p>
+          <p>View Timesheet</p>
           <ArrowRight size={12} />
         </div>
       </div>

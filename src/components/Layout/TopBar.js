@@ -12,7 +12,11 @@ function TopBar() {
     window.location.href = window.location.origin + "/";
   };
   return (
-    <div className="fixed w-full top-0 right-0 left-0 px-5 py-2 top-nav flex lg:hidden flex-row items-center justify-between">
+    <div
+      className={`fixed z-[1000] w-full top-0 right-0 left-0 px-5 py-2 top-nav flex lg:hidden flex-row items-center justify-between ${
+        window.location?.pathname == "/focusZone" ? "hidden" : "block"
+      }`}
+    >
       <a href="/">
         <div className="flex flex-row items-center space-x-1">
           <h1 className="font-normal font-poppins text-xl text-primary-red-medium">
@@ -23,7 +27,7 @@ function TopBar() {
       <div className="flex flex-row items-center space-x-4">
         <div
           onClick={() => {
-            history.push("/chronicle");
+            history.push("/chronicles");
           }}
           className="bg-white rounded-full flex flex-row items-center justify-center w-8 h-8"
         >

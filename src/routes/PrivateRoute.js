@@ -9,6 +9,12 @@ import ProjectsPage from "pages/Project";
 import Shareables from "pages/Shareables";
 import Chronicles from "pages/Chronicles";
 import Today from "pages/Today";
+import AcrossTheVerse from "pages/Verse";
+import Events from "pages/Events";
+import FocusGoals from "pages/FocusArea/FocusGoals";
+import Learning from "pages/Learning";
+import FoundationEssentials from "pages/FoundationEssentials";
+import KnowYourTribe from "pages/KnowYourTribe";
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
@@ -57,11 +63,53 @@ const privateRoutes = [
     component: ProjectsPage,
   },
   {
+    name: "Events",
+    description: "",
+    tab: "Events",
+    path: "/events",
+    component: Events,
+  },
+  {
+    name: "Learning",
+    description: "",
+    tab: "Learning",
+    path: "/learning",
+    component: Learning,
+  },
+  {
+    name: "Know Your Tribe",
+    description: "",
+    tab: "Know Your Tribe",
+    path: "/kyt",
+    component: KnowYourTribe,
+  },
+  {
+    name: "Foundation Essentials",
+    description: "",
+    tab: "Foundation Essentials",
+    path: "/essentials",
+    component: FoundationEssentials,
+  },
+  {
+    name: "Focus Goals",
+    description: "",
+    tab: "Focus Goals",
+    path: "/focusGoals",
+    component: FocusGoals,
+  },
+  {
     name: "Journal",
     description: "",
     tab: "Journal",
     path: "/journal",
     component: Journal,
+  },
+  {
+    name: "Verse",
+    description: "",
+    tab: "Verse",
+    path: "/verse",
+    component: AcrossTheVerse,
   },
 
   {

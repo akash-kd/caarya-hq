@@ -102,7 +102,7 @@ function ClockInModal({ isOpen, closeModal, onUpdate }) {
                 }}
                 className={`m-2 flex rounded flex-row items-center justify-center px-3 py-2 border ${
                   data == item
-                    ? "border-primary-yellow-medium bg-primary-yellow-30 text-primary-gray-800"
+                    ? "border-primary-red-medium bg-primary-red-lightest text-primary-gray-800"
                     : "border-primary-neutral-200 text-primary-neutral-400"
                 } font-lato text-xs font-semibold`}
               >
@@ -131,7 +131,7 @@ function ClockInModal({ isOpen, closeModal, onUpdate }) {
             boxShadow:
               "0px -4px 6px -4px rgba(0, 0, 0, 0.10), 0px -8px 15px -3px rgba(0, 0, 0, 0.10)",
           }}
-          className={`flex bg-primary-yellow-light flex-col fixed bottom-0 right-0 left-0 clockInButton ${
+          className={`flex bg-primary-red-lighter flex-col fixed bottom-0 right-0 left-0 clockInButton ${
             selectedTime ? "active" : "inactive"
           }`}
         >
@@ -139,7 +139,7 @@ function ClockInModal({ isOpen, closeModal, onUpdate }) {
             onClick={() => {
               onUpdate();
             }}
-            className={`w-full py-6 px-5 flex cursor-pointer flex-row space-x-2 items-center justify-center text-primary-yellow-darker font-lato text-sm font-semibold transition duration-150 ease-in-out ${
+            className={`w-full py-6 px-5 flex cursor-pointer flex-row space-x-2 items-center justify-center text-primary-red-darker font-lato text-sm font-semibold transition duration-150 ease-in-out ${
               ctaText ? "opacity-100" : "opacity-0"
             }`}
           >

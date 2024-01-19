@@ -60,7 +60,7 @@ function Journal() {
       <BreadCrumb page1="Journal" />
       {data?.length > 0 ? (
         <div className="flex flex-col space-y-10 p-4">
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 h-[80vh] overflow-y-auto">
             {dates?.map((item) => {
               return (
                 <div className="flex flex-row items-stretch space-x-1">
@@ -202,30 +202,6 @@ function Journal() {
               );
             })}
           </div>
-          {/* {data?.map((item) => {
-            return (
-              <div className="relative flex flex-col items-start space-y-1 border-b border-primary-gray-200 p-2">
-                <p className="font-karla text-sm font-medium text-primary-gray-800 w-10/12">
-                  {item?.title}
-                </p>
-                <p className="font-karla text-xs font-light text-primary-gray-800">
-                  {item?.description}
-                </p>
-                <p className="font-karla text-xs font-light text-primary-gray-800">
-                  Goal: <u>{item?.goal?.title}</u>
-                </p>
-                {item?.mood && (
-                  <div className="absolute right-1">
-                    <img
-                      src={`/assets/images/emojis/${item?.mood?.png}.png`}
-                      alt=""
-                      className="w-10 h-10"
-                    />
-                  </div>
-                )}
-              </div>
-            );
-          })} */}
         </div>
       ) : (
         <div className="px-8 h-80vh flex flex-col items-center justify-center space-y-4">
@@ -233,10 +209,6 @@ function Journal() {
           <h1 className="text-primary-gray-300 font-karla text-xl font-light">
             No Journal entry found!
           </h1>
-          {/* <p className="text-center text-primary-gray-300 font-lato text-xs font-light">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatu
-          </p> */}
         </div>
       )}
     </div>
