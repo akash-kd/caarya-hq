@@ -20,7 +20,7 @@ function SignIn() {
           </span>
         </p>
         <p className="font-satoshi capitalize text-sm lg:text-lg font-light text-primary-neutral-800 tracking-[1.4px]">
-          what you aspire, you become
+          Keep calm and #caaryaon
         </p>
       </div>
       <LoginCard />

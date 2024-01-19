@@ -6,7 +6,7 @@ function AppWrapper({ children }) {
   return (
     <div className="h-screen w-screen overflow-hidden">
       <TopBar />
-      <div className="max-h-85vh overflow-y-auto mt-11 lg:mt-2 py-3 block lg:hidden">
+      <div className="max-h-85vh mt-11 lg:mt-2 py-3 block lg:hidden">
         {children}
       </div>
       <DesktopWrapper>

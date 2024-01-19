@@ -185,13 +185,15 @@ function LoginCard() {
             background:
               "linear-gradient(0deg, rgba(237, 76, 65, 0.83) 0%, rgba(237, 76, 65, 0.83) 100%), url('/assets/images/loginBg.png'), lightgray -5.183px -40.248px / 110.117% 401.314% no-repeat",
           }}
-          className="text-white font-manrope rounded-t-lg py-6 px-5 text-sm lg:text-lg font-extralight text-center tracking-[0.7px]"
+          className="text-white font-manrope rounded-t-lg py-6 px-5 text-sm lg:text-lg font-extralight text-center tracking-[0.7px] w-full"
         >
           {option == "phone" ? (
-            <>
+            <div className="w-full">
               Enter the number registered with your{" "}
-              <span className="font-semibold">LIFE Pass</span> to continue
-            </>
+              <p className="font-semibold">
+                HQ Pass <span className="font-light">to continue</span>
+              </p>
+            </div>
           ) : (
             "Enter the OTP sent to your registered mobile number"
           )}
