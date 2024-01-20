@@ -46,6 +46,8 @@
     "react-router": "^6.11.2",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",

@@ -5,7 +5,12 @@ module.exports = {
     extend: {
       fontFamily: {
         karla: ["Karla", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
         lato: ["Lato", "sans-serif"],
+        poppins: ["poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        sanskrit: ["Tiro Devanagari Sanskrit", "serif"],
       },
       fontSize: {
         "3xs": "8px",
@@ -38,6 +43,8 @@ module.exports = {
             darker: "#6D1413",
             darkest: "#2B1111",
           },
+          peddle: { 300: "#33D6E1", 500: "#0497AE" },
+          fusion: { 500: "#FFBC00", dark: "#ba7507", darker: "#532A01" },
           green: {
             500: "#688E26",
             lightest: "#D8F3D7",

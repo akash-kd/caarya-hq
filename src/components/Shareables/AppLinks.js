@@ -3,7 +3,7 @@ import { apps } from "helpers/constants/appLinks";
 function AppLinks({ search }) {
   const token = localStorage.getItem("token");
   return (
-    <div className="px-5 space-y-5 flex flex-col w-full overflow-y-auto max-h-70vh pb-20">
+    <div className="px-5 space-y-5 w-full overflow-y-auto max-h-70vh pb-20">
       {apps.map((item) => {
         if (
           !search?.searchText ||

@@ -1,9 +1,9 @@
 import Card from "./Card";
 
 const list = [
-  { name: "Know your tribe", path: "/kyt" },
+  { name: "Know your tribe", path: "/essentials/kyt" },
   { name: "Events Calendar", key: "applicantInFTP" },
-  { name: "Foundation Essentials", path: "/essentials" },
+  { name: "Foundation Essentials", path: "/essentials/essentials" },
   { name: "Knowledge Boosters", path: "/learning" },
   { name: "Chronicles ", key: "eventCount" },
   { name: "Let's talk about us", key: "newApplicantCount" },

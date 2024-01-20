@@ -13,8 +13,7 @@ import AcrossTheVerse from "pages/Verse";
 import Events from "pages/Events";
 import FocusGoals from "pages/FocusArea/FocusGoals";
 import Learning from "pages/Learning";
-import FoundationEssentials from "pages/FoundationEssentials";
-import KnowYourTribe from "pages/KnowYourTribe";
+import Essentials from "pages/FoundationEssentials/Essentials";
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
@@ -77,19 +76,13 @@ const privateRoutes = [
     component: Learning,
   },
   {
-    name: "Know Your Tribe",
+    name: "Essentials",
     description: "",
-    tab: "Know Your Tribe",
-    path: "/kyt",
-    component: KnowYourTribe,
+    tab: "Essentials",
+    path: "/essentials/:type",
+    component: Essentials,
   },
-  {
-    name: "Foundation Essentials",
-    description: "",
-    tab: "Foundation Essentials",
-    path: "/essentials",
-    component: FoundationEssentials,
-  },
+
   {
     name: "Focus Goals",
     description: "",
