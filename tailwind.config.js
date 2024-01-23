@@ -80,6 +80,7 @@ module.exports = {
             1000: "#171718",
           },
           neutral: {
+            50: "#FAFAFA",
             100: "#F3F2F2",
             200: "#E7E6E5",
             300: "#CFCDC9",

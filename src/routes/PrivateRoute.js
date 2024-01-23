@@ -14,6 +14,8 @@ import Events from "pages/Events";
 import FocusGoals from "pages/FocusArea/FocusGoals";
 import Learning from "pages/Learning";
 import Essentials from "pages/FoundationEssentials/Essentials";
+import TribeVibe from "pages/TribeVibe";
+import Sprint from "pages/SprintCard";
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
@@ -67,6 +69,20 @@ const privateRoutes = [
     tab: "Events",
     path: "/events",
     component: Events,
+  },
+  {
+    name: "Sprint",
+    description: "",
+    tab: "Sprint",
+    path: "/sprint",
+    component: Sprint,
+  },
+  {
+    name: "Tribe Vibe",
+    description: "",
+    tab: "Tribe Vibe",
+    path: "/tribe",
+    component: TribeVibe,
   },
   {
     name: "Learning",

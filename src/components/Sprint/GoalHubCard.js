@@ -160,7 +160,22 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
                 <p className="font-light">{item?.track?.title}</p>
               </div>
             ) : (
-              <div></div>
+              <div>
+                {" "}
+                {item?.sessions?.length > 0 && (
+                  <div className="flex pt-2.5 flex-row items-center space-x-2 px-2">
+                    <div className="px-2 py-1 flex flex-row items-center space-x-2 rounded border border-primary-gray-200 text-primary-gray-600 text-2xs font-lato font-light">
+                      <Timer size={16} color="#816FE9" />
+                      <p>
+                        Total:{" "}
+                        <span className="font-medium">
+                          {getTotalTime(item?.sessions)}
+                        </span>
+                      </p>
+                    </div>{" "}
+                  </div>
+                )}
+              </div>
             )}
             <div className="flex flex-row items-center space-x-2">
               {/* <div className="px-1 py-1 rounded border border-primary-gray-200 text-primary-gray-350 text-3xs font-lato font-semibold">
@@ -249,7 +264,7 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
             </p>
           </div>
 
-          {item?.sessions?.length > 0 && (
+          {/* {item?.sessions?.length > 0 && (
             <div className="flex pt-2.5 flex-row items-center space-x-2 px-2">
               <div className="px-2 py-1 flex flex-row items-center space-x-2 rounded border border-primary-gray-200 text-primary-gray-600 text-2xs font-lato font-light">
                 <Timer size={16} color="#816FE9" />
@@ -271,12 +286,12 @@ function GoalHubCard({ item, onUpdate, showFocus, plannerMode, type }) {
                 </p>
               </div>
             </div>
-          )}
+          )} */}
 
           {showFocus && user?.id == item?.ownerId && (
             <div className="px-2 py-2 flex flex-row items-stretch justify-between">
               <div className="flex flex-row items-center space-x-2">
-                <Crosshair size={16} color="#FBA804" />
+                <Crosshair size={16} color="#FF7E6E" />
                 <p className="text-primary-gray-600 font-lato text-xs font-semibold">
                   Focusing in:
                 </p>

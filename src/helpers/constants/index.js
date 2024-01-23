@@ -20,7 +20,7 @@ const mobileBottomNav = [
   },
   {
     name: "Tribe Vibe",
-    path: "/events",
+    path: "/tribe",
     image: "/assets/svg/tabbar/tracks.svg",
     selectedImage: "/assets/svg/tabbar/selectedTracks.svg",
   },

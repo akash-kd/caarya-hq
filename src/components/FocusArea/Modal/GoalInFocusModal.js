@@ -3,7 +3,7 @@ import { X } from "@phosphor-icons/react";
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import GoalHubCard from "components/GoalHub/GoalHubCard";
+import GoalHubCard from "components/Sprint/GoalHubCard";
 import { fetchAllgoals } from "redux/goal";
 import { useDispatch, useSelector } from "react-redux";
 

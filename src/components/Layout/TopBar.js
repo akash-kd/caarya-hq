@@ -19,7 +19,7 @@ function TopBar() {
     >
       <a href="/">
         <div className="flex flex-row items-center space-x-1">
-          <h1 className="font-normal font-poppins text-xl text-primary-red-medium">
+          <h1 className="font-normal font-poppins text-xl text-white">
             #caaryaon
           </h1>
         </div>
@@ -53,7 +53,7 @@ function TopBar() {
           onClick={() => {
             onLogout();
           }}
-          className="h-6 w-6 text-primary-red-dark"
+          className="h-6 w-6 text-white"
         />
       </div>
     </div>

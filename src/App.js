@@ -94,7 +94,7 @@ function App() {
         position="top-right"
       />
       <LaptopState />
-      <div className="min-h-screen block md:hidden max-h-screen bg-white lg:bg-primary-gray-50">
+      <div className="min-h-screen bg-white block md:hidden max-h-screen ">
         <Router>
           <Switch>
             {publicRoutes.map((route, idx) => (

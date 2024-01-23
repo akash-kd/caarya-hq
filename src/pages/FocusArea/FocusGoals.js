@@ -2,7 +2,7 @@ import { Plus, X } from "@phosphor-icons/react";
 import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import GoalHubCard from "components/GoalHub/GoalHubCard";
+import GoalHubCard from "components/Sprint/GoalHubCard";
 import { fetchAllgoals } from "redux/goal";
 import { useDispatch, useSelector } from "react-redux";
 import GoalCreate from "components/Modals/Goal/GoalCreate";

@@ -1,9 +1,9 @@
 import { Switch } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Fire, SlidersHorizontal } from "@phosphor-icons/react";
+import { Clock, Fire, SlidersHorizontal } from "@phosphor-icons/react";
 import BreadCrumb from "components/Comman/BreadCrumb";
 import Tabs, { DividerTabs } from "components/Comman/Tabs";
-import GoalHubList from "components/GoalHub/GoalHubList";
+import GoalHubList from "components/Sprint/GoalHubList";
 import GoalCreateEdit from "components/Modals/Goal/GoalCreate/GoalCreateEdit";
 import { TASK_STATUS_INPROGRESS, TASK_STATUS_NOTSTARTED } from "helpers/task";
 
@@ -11,8 +11,11 @@ import moment from "moment";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllgoals } from "redux/goal";
+import PageHeader from "components/Comman/PageHeader";
+import SprintList from "components/Sprint/SprintList";
+import TimeSheet from "components/Sprint/TimeSheet";
 
-function GoalHub() {
+function Sprint() {
   const dispatch = useDispatch();
   const allGoals = useSelector((state) => state.goals?.goals);
   const myGoals = useSelector((state) => state.goals?.owner?.goals);
@@ -107,49 +110,30 @@ function GoalHub() {
         closeModal={() => setCreateNew(false)}
       />{" "}
       <div>
-        <BreadCrumb page1="Goal Hub" />
-        {/* <div className="text-primary-gray-300 font-semibold font-lato text-base border-b border-primary-gray-200 w-full grid grid-cols-2 divide-x divide-primary-gray-200">
-          <div className="py-3 px-4 flex flex-row items-center justify-center space-x-4">
-            <SlidersHorizontal size={20} />
-            <p>Sort</p>
-          </div>
-          <div className="py-3 px-4 flex flex-row items-center justify-center space-x-4">
-            <Funnel size={20} />
-            <p>Filter</p>
-          </div>
-        </div> */}
-        <DividerTabs
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          tabs={[
-            { label: "My Goals", value: "my" },
-            { label: "Shared Goals", value: "shared" },
-          ]}
-        />
-        <div className="flex flex-col px-4">
-          {/* <div className=""></div>
-          <h1 className="px-2 text-primary-gray-800 font-karla text-base font-medium">
-            All goals for {user?.first_name}
-          </h1>
-          <div className="flex flex-row items-center justify-start">
-            <ChronosButton
-              secondary
-              yellow
-              text="Add New Goal"
-              onClick={() => {
-                setCreateNew(true);
-              }}
-            />
-          </div> */}
+        <BreadCrumb page1="Sprint Card" />
+
+        <div className="flex flex-col h-[80vh] overflow-y-auto p-4 space-y-6">
+          <PageHeader
+            heading="Sprint Card"
+            description="Here you will find the goals you have to do"
+          />
+          <DividerTabs
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            tabs={[
+              { label: "My Goals", value: "my" },
+              { label: "Time Sheet", value: "sheet" },
+            ]}
+          />
           {selectedTab == "my" && (
             <div
               className={`flex flex-col space-y-3 dailyPlannerHeight ${
                 plannerMode ? "active" : "inactive"
               }`}
             >
-              <div className="flex flex-row items-center space-x-2 py-5 text-primary-gray-800 font-lato text-sm font-semibold">
-                <Fire size={16} />
-                <p>Priority Planner Mode</p>
+              <div className="flex flex-row items-center space-x-2 text-primary-gray-800 font-lato text-sm font-semibold">
+                <Clock size={16} />
+                <p>Plan Your Day</p>
                 <Switch
                   checked={plannerMode ? true : false}
                   onChange={() => {
@@ -195,25 +179,6 @@ function GoalHub() {
               </div>
             </div>
           )}
-          <div className="flex flex-row items-stretch space-x-4 overflow-x-auto py-6">
-            <div className="rounded shadow-filters flex flex-row items-center space-x-2 p-2 text-primary-gray-800 font-lato text-xs font-semibold">
-              <SlidersHorizontal size={16} />
-              <p>Sort</p>
-              <ChevronDownIcon className="w-4 h-4" />
-            </div>
-            <div className="rounded shadow-filters flex flex-row items-center space-x-2 p-2 text-primary-gray-800 font-lato text-xs font-semibold">
-              <p>Category</p>
-              <ChevronDownIcon className="w-4 h-4" />
-            </div>
-            <div className="rounded shadow-filters flex flex-row items-center space-x-2 p-2 text-primary-gray-800 font-lato text-xs font-semibold">
-              <p>Status</p>
-              <ChevronDownIcon className="w-4 h-4" />
-            </div>
-            <div className="rounded shadow-filters flex flex-row items-center space-x-2 p-2 text-primary-gray-800 font-lato text-xs font-semibold">
-              <p>Project</p>
-              <ChevronDownIcon className="w-4 h-4" />
-            </div>
-          </div>
 
           {selectedTab == "shared" && (
             <>
@@ -231,7 +196,14 @@ function GoalHub() {
           )}
           {selectedTab == "my" ? (
             <div className={`w-full`}>
-              <GoalHubList
+              <SprintList
+                list={getGoals(myGoals, "today")}
+                onUpdate={() => {
+                  dispatch(fetchAllgoals());
+                }}
+                showFocus
+              />{" "}
+              {/* <GoalHubList
                 type={selectedSharedTab}
                 plannerMode={plannerMode}
                 heading="Recommended to Focus"
@@ -256,20 +228,23 @@ function GoalHub() {
                 onUpdate={() => {
                   dispatch(fetchAllgoals());
                 }}
-              />
+              /> */}
             </div>
           ) : (
-            <div className={`w-full pt-6`}>
-              <GoalHubList
-                plannerMode={plannerMode}
-                heading=""
-                list={getGoals(sharedGoals)}
-                onUpdate={() => {
-                  dispatch(fetchAllgoals());
-                }}
-                showFocus
-              />
-            </div>
+            <>
+              <TimeSheet />
+              {/* <div className={`w-full pt-6`}>
+                <GoalHubList
+                  plannerMode={plannerMode}
+                  heading=""
+                  list={getGoals(sharedGoals)}
+                  onUpdate={() => {
+                    dispatch(fetchAllgoals());
+                  }}
+                  showFocus
+                />
+              </div> */}
+            </>
           )}
         </div>
       </div>
@@ -277,4 +252,4 @@ function GoalHub() {
   );
 }
 
-export default GoalHub;
+export default Sprint;

@@ -88,8 +88,8 @@ function DividerTabs({ tabs, selectedTab, setSelectedTab }) {
   }, [selectedTab]);
 
   return (
-    <div className="px-4 lg:px-0 pt-3 pb-2 bg-white shadow relative">
-      <div className="w-full grid grid-cols-2 divide-x-2 divide-primary-neutral-100">
+    <div className="bg-white relative">
+      <div className="w-full grid grid-cols-2 pb-2">
         {tabs.map((item, idx) => {
           return (
             <div
@@ -99,13 +99,13 @@ function DividerTabs({ tabs, selectedTab, setSelectedTab }) {
                 setSelectedTab(item?.value);
                 setActiveTabIndex(idx);
               }}
-              className="min-w-max flex flex-row items-center justify-center"
+              className="min-w-max w-full flex flex-row items-center justify-center"
             >
               <div
                 ref={(el) => (tabsRef.current[idx] = el)}
-                className={` px-6 pb-2 cursor-pointer text-sm lg:text-sm font-karla text-center hover:font-bold ${
+                className={` px-6 pb-2 cursor-pointer text-sm lg:text-sm font-poppins text-center hover:font-bold ${
                   selectedTab == item?.value
-                    ? "font-medium text-primary-yellow-darker "
+                    ? "font-medium text-black"
                     : "font-light text-primary-neutral-500"
                 }`}
               >
@@ -117,7 +117,7 @@ function DividerTabs({ tabs, selectedTab, setSelectedTab }) {
       </div>
 
       <span
-        className="absolute bottom-1 rounded-sm block h-[4px] bg-primary-yellow-medium transition-all duration-300"
+        className="absolute bottom-1 rounded-sm block h-0.5 bg-primary-red-medium transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       />
     </div>

@@ -176,8 +176,7 @@ textarea:focus {
   -moz-backdrop-filter: blur(5px) !important; }
 
 .top-nav {
-  background: #ffe9e5;
-  box-shadow: 0px 10px 20px -13px rgba(0, 0, 0, 0.15); }
+  background: linear-gradient(180deg, #ff7e6e 0%, #c63434 100%); }
 
 .tapbar {
   background: #ffffff;
@@ -1963,7 +1962,8 @@ button:focus {
   font-size: 14px;
   background: #fff;
   /* neutral-200 */
-  border-bottom: 1px solid #e7e6e5;
+  border-radius: 4px;
+  border: 1px solid #f3f2f2;
   outline: none;
   /* hover */
   /* focused */
@@ -1973,7 +1973,7 @@ button:focus {
     /* neutral-200 */ }
   .theme-simple-input:focus {
     background: #fafafa;
-    border-bottom: 1px solid #ffbc00; }
+    border-color: #ed4c41; }
   .theme-simple-input:disabled {
     background: #f3f4f6ff;
     /* neutral-200 */
