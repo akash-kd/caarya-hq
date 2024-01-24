@@ -82,8 +82,14 @@ const DayWiseEngagement = ({ day, list }) => {
       <div className="grid gap-4">
         {list?.map((item) => {
           return (
-            <div className="rounded-2xl bg-white">
-              <img src={item?.image} alt="" className="rounded-t-2xl" />
+            <div
+              style={{
+                boxShadow:
+                  "0px 4px 6px -4px rgba(0, 0, 0, 0.10), 0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 0px 16px 0px rgba(0, 0, 0, 0.05)",
+              }}
+              className="rounded-2xl bg-white"
+            >
+              <img src={item?.image} alt="" className="rounded-t-2xl w-full" />
               <div className="py-4 px-3 flex flex-col space-y-2">
                 <h1 className="text-black font-lato text-base font-semibold leading-6 tracking-[0.32px]">
                   {item?.title}

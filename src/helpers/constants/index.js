@@ -5,13 +5,13 @@ const mobileBottomNav = [
     image: "/assets/svg/tabbar/focus.svg",
     selectedImage: "/assets/svg/tabbar/selectedFocus.svg",
   },
-
   {
-    name: "Time Sheet",
-    path: "/journal",
-    image: "/assets/svg/tabbar/journal.svg",
-    selectedImage: "/assets/svg/tabbar/selectedJournal.svg",
+    name: "Essentials",
+    path: "/verse",
+    image: "/assets/svg/tabbar/goalHub.svg",
+    selectedImage: "/assets/svg/tabbar/selectedGoalHub.svg",
   },
+
   {
     name: "#you",
     path: "/today",
@@ -25,10 +25,10 @@ const mobileBottomNav = [
     selectedImage: "/assets/svg/tabbar/selectedTracks.svg",
   },
   {
-    name: "Essentials",
-    path: "/verse",
-    image: "/assets/svg/tabbar/goalHub.svg",
-    selectedImage: "/assets/svg/tabbar/selectedGoalHub.svg",
+    name: "Sprint Card",
+    path: "/sprint",
+    image: "/assets/svg/tabbar/journal.svg",
+    selectedImage: "/assets/svg/tabbar/selectedJournal.svg",
   },
 ];
 export { mobileBottomNav };

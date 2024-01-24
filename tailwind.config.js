@@ -55,6 +55,7 @@ module.exports = {
             darker: "#08422F",
             darkest: "#012B20",
           },
+          dawn: { 500: "#F57D34" },
           orange: {
             100: "#FEF8F1",
             400: "#ED7D2D",
