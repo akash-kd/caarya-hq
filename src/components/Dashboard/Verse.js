@@ -8,11 +8,11 @@ const list = [
     path: "/essentials/kyt",
     image: "/assets/images/essentials/1.png",
   },
-  {
-    name: "Events Calendar",
-    key: "applicantInFTP",
-    image: "/assets/images/essentials/2.png",
-  },
+  // {
+  //   name: "Events Calendar",
+  //   key: "applicantInFTP",
+  //   image: "/assets/images/essentials/2.png",
+  // },
   {
     name: "Foundation Essentials",
     path: "/essentials/essentials",
@@ -23,11 +23,11 @@ const list = [
     path: "/learning",
     image: "/assets/images/essentials/4.png",
   },
-  {
-    name: "Chronicles ",
-    key: "eventCount",
-    image: "/assets/images/essentials/5.png",
-  },
+  // {
+  //   name: "Chronicles ",
+  //   key: "eventCount",
+  //   image: "/assets/images/essentials/5.png",
+  // },
   {
     name: "Let's talk about us",
     key: "newApplicantCount",
