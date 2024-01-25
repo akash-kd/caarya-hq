@@ -1,5 +1,6 @@
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import CGC from "components/Essentials/CGC";
+import Crew from "components/Essentials/Crew";
 import ForStartup from "components/Essentials/ForStartUps";
 import ForStudents from "components/Essentials/ForStudents";
 import FoundationEssentials from "components/Essentials/Foundation";
@@ -27,6 +28,7 @@ function Essentials() {
       {type == "socials" && <Socials />}
       {type == "values" && <Values />}
       {type == "what" && <What />}
+      {type == "crew" && <Crew />}
     </>
   );
 }

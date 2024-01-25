@@ -25,7 +25,7 @@ function CGC() {
             </h4>
           </div>
 
-          <div className="w-full max-w-[100vw] z-20 flex flex-row items-center text-left justify-center">
+          <div className="w-full mt-6 max-w-[100vw] z-20 flex flex-row items-center text-left justify-center">
             <h4 className="text-sm font-light lg:text-base leading-6 tracking-[0.35px] text-primary-neutral-500 text-left font-lato max-w-4xl capitalize">
               Caarya Growth Centers (CGCs) represent{" "}
               <span className="text-primary-red-medium">

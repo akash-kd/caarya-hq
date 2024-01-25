@@ -35,7 +35,7 @@ const list = [
   },
   {
     name: "CREWs",
-    path: "/essentials/cgc",
+    path: "/essentials/crew",
     image: "/assets/images/essentials/foundation/7.png",
   },
   {
