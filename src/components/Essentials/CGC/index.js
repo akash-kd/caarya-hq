@@ -67,7 +67,7 @@ function CGC() {
           </h1>
           <CardCarousel title="Yoshi Crew" data={yoshi} />
           <CardCarousel title="Wojtek Crew" data={wojtek} />
-          <CardCarousel title="Moko Crew" data={moko} />
+          <CardCarousel title="Togo Crew" data={moko} />
           <CardCarousel title="Cher Ami Crew" data={cherAmi} />
         </div>
       </div>

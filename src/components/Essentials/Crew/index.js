@@ -1,9 +1,12 @@
 import BreadCrumb from "components/Comman/BreadCrumb";
 import Header from "../Header";
 import { useState } from "react";
+import { wojtek, yoshi, moko, cherAmi } from "helpers/constants/city";
+import CityCard from "../CGC/CityCard";
 
 function Crew() {
-  const [selectedCrew, setSelectedCrew] = useState("");
+  const [selectedCrew, setSelectedCrew] = useState("YOSHI");
+  const [list, setList] = useState([]);
   return (
     <>
       <BreadCrumb
@@ -83,6 +86,18 @@ function Crew() {
               alt=""
               className="w-full"
             />
+            <div className="grid gap-5">
+              {(selectedCrew == "YOSHI"
+                ? yoshi
+                : selectedCrew == "WOJTEK"
+                ? wojtek
+                : selectedCrew == "TOGO"
+                ? moko
+                : cherAmi
+              )?.map((item) => {
+                return <CityCard source={item?.source} city={item?.city} />;
+              })}
+            </div>
           </div>
         </div>
       </div>
