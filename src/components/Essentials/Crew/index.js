@@ -3,6 +3,7 @@ import Header from "../Header";
 import { useState } from "react";
 import { wojtek, yoshi, moko, cherAmi } from "helpers/constants/city";
 import CityCard from "../CGC/CityCard";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 function Crew() {
   const [selectedCrew, setSelectedCrew] = useState("YOSHI");
@@ -99,6 +100,7 @@ function Crew() {
               })}
             </div>
           </div>
+          <Assessment />
         </div>
       </div>
     </>

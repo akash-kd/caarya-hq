@@ -2,6 +2,7 @@ import BreadCrumb from "components/Comman/BreadCrumb";
 import Header from "../Header";
 import CardCarousel from "./CardCarousel";
 import { yoshi, wojtek, moko, cherAmi } from "helpers/constants/city";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 function CGC() {
   return (
@@ -69,6 +70,7 @@ function CGC() {
           <CardCarousel title="Wojtek Crew" data={wojtek} />
           <CardCarousel title="Togo Crew" data={moko} />
           <CardCarousel title="Cher Ami Crew" data={cherAmi} />
+          <Assessment />
         </div>
       </div>
     </>

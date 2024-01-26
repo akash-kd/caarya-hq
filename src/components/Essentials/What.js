@@ -1,6 +1,7 @@
 import BreadCrumb from "components/Comman/BreadCrumb";
 import React from "react";
 import Header from "./Header";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 const list = [
   {
@@ -467,6 +468,7 @@ function What() {
               );
             })}
           </div>
+          <Assessment />
         </div>
       </div>
     </>

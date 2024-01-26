@@ -1,5 +1,6 @@
 import BreadCrumb from "components/Comman/BreadCrumb";
 import Header from "./Header";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 function Ventures() {
   return (
@@ -39,7 +40,7 @@ function Ventures() {
                 </h4>
               </div>
             </div>
-            <ul className="relative max-w-6xl lg:mx-5 xl:mx-auto lg:px-3 pt-8 md:px-8 xl:px-0">
+            <ul className="relative max-w-6xl lg:mx-5 xl:mx-auto lg:px-3 pt-8 md:px-8 xl:px-0 mb-16">
               <div className="w-0.5 rounded absolute top-5 left-1/2 bottom-0 hidden lg:block" />
               <IndulgenceCard
                 item={{
@@ -93,6 +94,7 @@ function Ventures() {
                 bgColor="#eefdfe"
               />
             </ul>
+            <Assessment />
           </div>
         </div>
       </div>

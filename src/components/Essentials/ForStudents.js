@@ -1,6 +1,7 @@
 import BreadCrumb from "components/Comman/BreadCrumb";
 import Header from "./Header";
 import React from "react";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 function ForStudents() {
   return (
@@ -454,6 +455,7 @@ function ForStudents() {
                 }}
               />
             </div>
+            <Assessment />
           </div>{" "}
         </div>
       </div>

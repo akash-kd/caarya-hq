@@ -11,7 +11,7 @@ function ToolsAndProducts() {
         page2="Foundation Essentials"
         page3="Tools & Products"
       />
-      <div className="pt-5">
+      <div className="pt-5 px-4">
         <AppLinks />
       </div>
     </>

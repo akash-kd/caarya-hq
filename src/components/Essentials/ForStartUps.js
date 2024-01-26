@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import BreadCrumb from "components/Comman/BreadCrumb";
+import Assessment from "components/Comman/Buttons/Assessment";
 
 function ForStartup() {
   return (
@@ -805,6 +806,7 @@ function ForStartup() {
                 }}
               />
             </div>{" "}
+            <Assessment />
           </div>
         </div>
       </div>
