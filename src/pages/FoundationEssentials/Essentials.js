@@ -1,4 +1,5 @@
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import Better from "components/Essentials/Better";
 import CGC from "components/Essentials/CGC";
 import Crew from "components/Essentials/Crew";
 import ForStartup from "components/Essentials/ForStartUps";
@@ -29,6 +30,7 @@ function Essentials() {
       {type == "values" && <Values />}
       {type == "what" && <What />}
       {type == "crew" && <Crew />}
+      {type == "better" && <Better />}
     </>
   );
 }

@@ -41,10 +41,10 @@ function Tabs({ tabs, selectedTab, setSelectedTab }) {
               className="min-w-max"
             >
               <div
-                className={`flex px-3 pb-1 flex-row cursor-pointer text-xs lg:text-sm items-end justify-center font-lato text-center hover:font-bold ${
+                className={`flex px-3 pb-1 flex-row cursor-pointer text-sm leading-5 tracking-[0.28px] items-end justify-center font-satoshi text-center hover:font-bold ${
                   selectedTab == item?.value
-                    ? "font-semibold text-primary-red-darker"
-                    : "font-semibold text-primary-neutral-400"
+                    ? "font-medium text-black"
+                    : "font-medium text-primary-neutral-400"
                 }`}
               >
                 {item?.label}
@@ -55,7 +55,7 @@ function Tabs({ tabs, selectedTab, setSelectedTab }) {
       </div>
 
       <span
-        className="absolute bottom-1 rounded-sm block h-[3px] bg-primary-red-darker transition-all duration-300"
+        className="absolute bottom-1 rounded-sm block h-[3px] bg-primary-red-medium transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       />
     </div>

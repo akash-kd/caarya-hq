@@ -5,12 +5,13 @@ import LearningList from "components/Shareables";
 import Tabs from "components/Comman/Tabs";
 import SourcingDriveList from "components/SourcingDrive";
 import AppLinks from "components/Shareables/AppLinks";
+import BreadCrumb from "components/Comman/BreadCrumb";
+import PageHeader from "components/Comman/PageHeader";
+import Important from "components/Shareables/Important";
 
 const tabs = [
-  // { label: "Knowledge", value: "knowledge" },
-  // { label: "Drives", value: "drives" },
-  // { label: "FYI", value: "fyi" },
   { label: "Docs & Sheets", value: "kits" },
+  { label: "Important Stuff 💫", value: "important" },
   { label: "Quick Links", value: "links" },
 ];
 function Shareables() {
@@ -39,28 +40,35 @@ function Shareables() {
 
   return (
     <>
-      <div className="px-7.5 pt-2.5">
+      <BreadCrumb back page1="Resources" />
+      <div className="py-8 px-4 space-y-10 max-h-80vh overflow-x-auto">
+        <PageHeader
+          heading="Resources"
+          description="Section description here"
+        />{" "}
         <SearchBox
-          placeholder="Find a shareable!"
+          placeholder="Search for a resource"
           search={search}
           setSearch={setSearch}
-        />
-      </div>
-      <Tabs
-        tabs={tabs}
-        selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
-      />
-      <div className="max-h-70vh overflow-y-hidden">
-        {selectedTab == "drives" ? (
-          <>
-            <SourcingDriveList search={search} />
-          </>
-        ) : selectedTab == "links" ? (
-          <AppLinks search={search} />
-        ) : (
-          <LearningList search={search} type={selectedTab} />
-        )}
+        />{" "}
+        <Tabs
+          tabs={tabs}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />{" "}
+        <div className="space-y-6">
+          {selectedTab == "drives" ? (
+            <>
+              <SourcingDriveList search={search} />
+            </>
+          ) : selectedTab == "links" ? (
+            <AppLinks search={search} />
+          ) : selectedTab == "important" ? (
+            <Important search={search} list={[1, 2, 3, 4, 5, 6]} />
+          ) : (
+            <LearningList search={search} type={selectedTab} />
+          )}
+        </div>
       </div>
     </>
   );
