@@ -26,7 +26,13 @@ function Better() {
           <div className="py-4 px-2 space-y-6">
             {[1, 2, 3, 4, 5]?.map((item) => {
               return (
-                <div className="bg-white rounded-xl p-4 space-y-4">
+                <div
+                  style={{
+                    boxShadow:
+                      "0px 4px 6px -4px rgba(0, 0, 0, 0.10), 0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 0px 16px 0px rgba(0, 0, 0, 0.05)",
+                  }}
+                  className="bg-white rounded-xl p-4 space-y-4"
+                >
                   <div className="space-y-2">
                     <h1 className="text-black font-lato text-base font-bold leading-6 tracking-[1.28px]">
                       Issue Title Here
