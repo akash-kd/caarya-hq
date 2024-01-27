@@ -3,12 +3,12 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 .gradient-symmetry {
   background-color: #147a4b;
@@ -138,7 +138,7 @@ textarea:focus {
 
 .otp-login-container body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -1000,6 +1000,16 @@ textarea:focus {
 .triangle {
   -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
   clip-path: polygon(0 0, 100% 100%, 100% 0); }
+
+.red-gradient {
+  background: linear-gradient(180deg, #FF7E6E 0%, #C63434 100%); }
+
+.DraftEditor-root {
+  font-family: 'Lato', sans-serif; }
+
+.DraftEditor-editorContainer {
+  max-height: 140px;
+  overflow: scroll; }
 
 /*Theme Colors*/
 /*Theme Colors*/

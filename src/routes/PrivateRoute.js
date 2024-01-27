@@ -8,6 +8,7 @@ import FocusArea from "pages/FocusArea";
 import ProjectsPage from "pages/Project";
 import Shareables from "pages/Shareables";
 import Chronicles from "pages/Chronicles";
+import Chron from "pages/Chron";
 import Today from "pages/Today";
 import AcrossTheVerse from "pages/Verse";
 import Events from "pages/Events";
@@ -16,6 +17,7 @@ import Learning from "pages/Learning";
 import Essentials from "pages/FoundationEssentials/Essentials";
 import TribeVibe from "pages/TribeVibe";
 import Sprint from "pages/SprintCard";
+import AddChronicles from "pages/Chron/addChron";
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
@@ -119,6 +121,20 @@ const privateRoutes = [
     tab: "Verse",
     path: "/verse",
     component: AcrossTheVerse,
+  },
+  {
+    name: "Add Chronicle",
+    description: "",
+    tab: "Add Chron",
+    path: "/chron/add",
+    component: AddChronicles,
+  },
+  {
+    name: "Chronicle",
+    description: "",
+    tab: "Chron",
+    path: "/chron",
+    component: Chron,
   },
 
   {
