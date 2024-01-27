@@ -1,9 +1,25 @@
 import { ChronPageHeader, ChronBreadcrumbs } from "components/Chron";
 import { Add } from "components/Chron/icons";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { getAllChron } from "config/APIs/chron";
+import { useState } from "react";
+import moment from "moment";
 
 function Chronicles() {
   const history = useHistory();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetch() {
+      const res = await getAllChron();
+      setData(res.data.chrons);
+    }
+
+    fetch();
+  }, []);
+
+  console.log(data);
 
   return (
     <div>
@@ -16,82 +32,58 @@ function Chronicles() {
             Company Updates
           </div>
           <div className="flex overflow-scroll items-center gap-[20px]">
-            <div className="flex flex-col min-w-[240px] w-[240px] h-[200px] items-start gap-[8px] p-[12px] bg-[#ffffff33] rounded-[10px]">
-              <p className="relative self-stretch mt-[-1.00px] [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[12px] tracking-[0.24px] leading-[18px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]">
-                Update text here in two lines lorem ipsum 😄🔥
-              </p>
-              <div className="relative flex-1 self-stretch w-full grow bg-[#d9d9d9] rounded-[4px]" />
-            </div>
-
-            <div className="flex flex-col min-w-[240px] w-[240px] h-[200px] items-start gap-[8px] p-[12px] bg-[#ffffff33] rounded-[10px]">
-              <p className="relative self-stretch mt-[-1.00px] [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[12px] tracking-[0.24px] leading-[18px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]">
-                Update text here in two lines lorem ipsum 😄🔥
-              </p>
-              <div className="relative flex-1 self-stretch w-full grow bg-[#d9d9d9] rounded-[4px]" />
-            </div>
-            <div className="flex flex-col min-w-[240px] w-[240px] h-[200px] items-start gap-[8px] p-[12px] bg-[#ffffff33] rounded-[10px]">
-              <p className="relative self-stretch mt-[-1.00px] [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[12px] tracking-[0.24px] leading-[18px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]">
-                Update text here in two lines lorem ipsum 😄🔥
-              </p>
-              <div className="relative flex-1 self-stretch w-full grow bg-[#d9d9d9] rounded-[4px]" />
-            </div>
+            {data?.map((item, index) => {
+              if (item?.is_admin)
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col min-w-[240px] w-[240px] h-[200px] items-start gap-[8px] p-[12px] bg-[#ffffff33] rounded-[10px]"
+                  >
+                    <p className="relative self-stretch mt-[-1.00px] [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[12px] tracking-[0.24px] leading-[18px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]">
+                      {item.message}
+                    </p>
+                    <div className="relative flex-1 self-stretch w-full grow bg-[#d9d9d9] rounded-[4px]" />
+                  </div>
+                );
+              else return <></>;
+            })}
           </div>
         </div>
         <div className="flex flex-col items-start justify-center gap-[40px] px-[24px] py-[16px] mb-20">
-          <div className="flex flex-col min-h-[80px] items-start gap-[16px] p-[16px] self-stretch w-full bg-[#ffffff33] rounded-[10px] relative flex-[0_0_auto]">
-            <div className="inline-flex items-center gap-[12px] relative flex-[0_0_auto]">
-              <img
-                className="relative w-[28px] h-[28px] object-cover bg-blue-500 rounded-full"
-                alt="A"
-                src="rectangle-3883.png"
-              />
-              <div className="relative w-fit [font-family:'Lato-Bold',Helvetica] font-bold text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px] whitespace-nowrap">
-                Darlene Robertson
-              </div>
-            </div>
-            <p className="relative self-stretch [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px]">
-              Some update here in text, can exceed two lines here if required
-              lorem ipsum 😄🔥
-            </p>
-            <div className="relative self-stretch w-full h-[160px] bg-[#d9d9d9] rounded-[4px]" />
-            <div className="flex items-center justify-between self-stretch w-full relative flex-[0_0_auto]">
-              <div className="inline-flex items-center gap-[8px] relative flex-[0_0_auto]">
-                <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-SemiBold',Helvetica] font-semibold text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
-                  Developer
+          {data.map((item, index) => {
+            if (item.is_admin === true)
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col min-h-[80px] items-start gap-[16px] p-[16px] self-stretch w-full bg-[#ffffff33] rounded-[10px] relative flex-[0_0_auto]"
+                >
+                  <div className="inline-flex items-center gap-[12px] relative flex-[0_0_auto]">
+                    <img
+                      className="relative w-[28px] h-[28px] object-cover bg-blue-500 rounded-full"
+                      alt="A"
+                      src="image.png"
+                    />
+                    <div className="relative w-fit [font-family:'Lato-Bold',Helvetica] font-bold text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px] whitespace-nowrap">
+                      Kathryn Murphy
+                    </div>
+                  </div>
+                  <p className="relative self-stretch [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px]">
+                    {item.message}
+                  </p>
+                  <div className="relative self-stretch w-full h-[160px] bg-[#d9d9d9] rounded-[4px]" />
+                  <div className="flex items-center justify-between self-stretch w-full relative flex-[0_0_auto]">
+                    <div className="inline-flex items-center gap-[8px] relative flex-[0_0_auto]">
+                      <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-SemiBold',Helvetica] font-semibold text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
+                        Illustrator
+                      </div>
+                    </div>
+                    <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-Light',Helvetica] font-light text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
+                      {moment(item.createdAt).format("hh:mm A")}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-Light',Helvetica] font-light text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
-                00:00 Am
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col min-h-[80px] items-start gap-[16px] p-[16px] self-stretch w-full bg-[#ffffff33] rounded-[10px] relative flex-[0_0_auto]">
-            <div className="inline-flex items-center gap-[12px] relative flex-[0_0_auto]">
-              <img
-                className="relative w-[28px] h-[28px] object-cover bg-blue-500 rounded-full"
-                alt="A"
-                src="image.png"
-              />
-              <div className="relative w-fit [font-family:'Lato-Bold',Helvetica] font-bold text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px] whitespace-nowrap">
-                Kathryn Murphy
-              </div>
-            </div>
-            <p className="relative self-stretch [font-family:'Lato-Regular',Helvetica] font-normal text-neutral-100 text-[14px] tracking-[0.70px] leading-[21px]">
-              Some update here in text, can exceed two lines here if required
-              lorem ipsum 😄🔥
-            </p>
-            <div className="relative self-stretch w-full h-[160px] bg-[#d9d9d9] rounded-[4px]" />
-            <div className="flex items-center justify-between self-stretch w-full relative flex-[0_0_auto]">
-              <div className="inline-flex items-center gap-[8px] relative flex-[0_0_auto]">
-                <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-SemiBold',Helvetica] font-semibold text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
-                  Illustrator
-                </div>
-              </div>
-              <div className="relative w-fit mt-[-1.00px] [font-family:'Lato-Light',Helvetica] font-light text-neutral-100 text-[10px] tracking-[0.25px] leading-[15px] whitespace-nowrap">
-                00:00 Am
-              </div>
-            </div>
-          </div>
+              );
+          })}
         </div>
       </div>
 

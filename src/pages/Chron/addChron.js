@@ -5,7 +5,9 @@ import Close from "components/Chron/icons/close";
 import { Emoji, List, Image } from "components/Chron/icons/icons";
 import { useHistory } from "react-router-dom";
 import RichTextEditor from "react-rte";
-const Top = () => {
+import { AddChron, addChron } from "config/APIs/chron";
+
+const Top = ({ onPostClick }) => {
   const histroy = useHistory();
   return (
     <div className="flex items-center justify-between relative mb-2">
@@ -15,7 +17,10 @@ const Top = () => {
         }}
       />
 
-      <div className="cursor-pointer flex px-6 py-3 rounded-full shadow-shadow-lg red-gradient shadow">
+      <div
+        className="cursor-pointer flex px-6 py-3 rounded-full shadow-shadow-lg red-gradient shadow"
+        onClick={onPostClick}
+      >
         <div className="font-lato font-bold text-white text-sm tracking-[0.70px] leading-[21px] whitespace-nowrap">
           Post Now
         </div>
@@ -27,8 +32,15 @@ const Top = () => {
 function AddChronicles() {
   const [state, setState] = useState(RichTextEditor.createEmptyValue());
   const onTextChange = (value) => {
+    console.log(value.toString("html"));
     setState(value);
   };
+
+  const onPostClick = () => {
+    const user = JSON.parse(localStorage.getItem("admin"));
+    addChron({ message: state.toString("html"), user_id: user.id });
+  };
+
   const toolbarConfig = {
     // Optionally specify the groups to display (displayed in the order listed).
     display: ["INLINE_STYLE_BUTTONS", "BLOCK_TYPE_BUTTONS"],
@@ -50,7 +62,7 @@ function AddChronicles() {
   };
   return (
     <div className="w-full h-95vh relative -top-2 py-4 px-2">
-      <Top />
+      <Top onPostClick={onPostClick} />
       <div className="w-full h-full px-4 py-2">
         <h3 className="text-red-400 text-lg font-bold font-satoshi leading-[27px] tracking-tight mb-6">
           New Chronicle
