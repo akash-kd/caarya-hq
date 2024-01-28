@@ -4,16 +4,30 @@ import {
   XCircleIcon,
 } from "@heroicons/react/solid";
 import { Clock } from "@phosphor-icons/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   CircularProgressbarWithChildren,
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import JournalCard from "./JournalCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllJournals } from "redux/journals";
 
 function TimeSheet() {
-  const [journals, setJournals] = useState([{ id: 1 }]);
+  const dispatch = useDispatch();
+
+  const journals = useSelector((state) => state.journals);
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted && !location?.pathname?.includes("/redirect")) {
+      dispatch(fetchAllJournals());
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   return (
     <div className="flex flex-col space-y-4 pb-6">
       <div className="p-2 flex flex-row items-center justify-between">
@@ -202,7 +216,9 @@ function TimeSheet() {
               </div>
             </>
           ) : (
-            <JournalCard journals />
+            journals?.journals?.map((journal) => (
+              <JournalCard journal={journal} />
+            ))
           )}
         </div>
       </div>

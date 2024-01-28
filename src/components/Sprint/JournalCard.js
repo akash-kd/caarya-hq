@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const JournalCard = ({ journals }) => {
+const JournalCard = ({ journal }) => {
+  useEffect(() => {
+    console.log(journal);
+  }, []);
   return (
-    <div className="bg-white rounded py-2 px-4 w-full">
+    <div className="bg-white rounded py-2 px-4 w-full mb-2">
       <div className="flex items-center gap-2">
-        <div>
+        <div className="w-full">
           <h1 className="line-clamp-2 font-semibold text-sm">
-            Some random goal title here. Maximum 2 lines, to truncate otherwise
+            {journal?.goal?.title}{" "}
           </h1>
           <div className="flex justify-evenly mt-4 mb-4">
             <div>
@@ -21,13 +24,12 @@ const JournalCard = ({ journals }) => {
             </div>
           </div>
           <p className="line-clamp-2 text-xs text-neutral-800">
-            Any additional comments that might have been added appear here in 2
-            lines, additional get truncarted
+            {journal?.description}
           </p>
         </div>
 
         <img
-          src="/assets/images/emojis/happy.png"
+          src={`/assets/images/emojis/${journal?.mood?.png}.png`}
           alt=""
           className="w-16 h-16"
         />
