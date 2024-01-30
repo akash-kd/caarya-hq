@@ -35,7 +35,7 @@ const list = [
   },
   {
     name: "Let's make us better",
-    key: "researchDoneCount",
+    path: "/essentials/better",
     image: "/assets/images/essentials/7.png",
   },
 ];

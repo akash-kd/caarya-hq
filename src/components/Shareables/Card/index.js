@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { XIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon, XIcon } from "@heroicons/react/solid";
 import ReactPlayer from "react-player";
 
 /**
@@ -19,6 +19,7 @@ function ShortURLsCard({
   creator,
   long_url,
   onClick,
+  short_url,
 }) {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
@@ -40,85 +41,63 @@ function ShortURLsCard({
   }, [show]);
   return (
     <div
-      className={`cursor-pointer bg-white shadow-container rounded-20px ${
-        open ? "learning-box-expanded" : `learning-box`
-      }`}
+      style={{
+        boxShadow:
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.10), 0px 10px 15px -3px rgba(0, 0, 0, 0.10)",
+      }}
+      className="p-4 bg-white rounded-lg flex flex-col space-y-3"
     >
-      <div>
-        <div className="relative group py-5 px-5 focus-within:ring-0">
-          <div>
-            <span className="bg-primary-red-medium text-2xs text-white rounded-full inline-flex px-2 py-0.5">
-              {type?.name}
-            </span>
-          </div>
-          <div className="mt-2 flex flex-col items-start w-full">
-            <h3 className="">
-              <div className="focus:outline-none w-full">
-                <p className="w-full text-sm line-clamp-2 leading-4 font-inter text-primary-gray-1000 cursor-pointer break-words font-bold">
-                  {title || "No Title"}
-                </p>
-              </div>
-            </h3>
-            <p className="mt-1 text-sm text-primary-gray-1000 opacity-70 line-clamp-2 inter">
-              {description || "No Description"}
-            </p>
-            <div className="mt-4 font-inter text-xs font-bold text-primary-red-darkest border-primary-red-lighter break-all border-t pt-2 w-full flex flex-row items-center justify-between">
-              <div
-                className={show ? "invisible" : "visible"}
-                onClick={() => {
-                  onClick ? onClick() : setOpen(true);
-                }}
-              >
-                View ->
-              </div>
-
-              <div
-                className={show ? "visible" : "invisible"}
-                onClick={() => {
-                  setShow(false);
-                }}
-              >
-                <XIcon className="w-4 h-4 text-primary-red-darkest cursor-pointer" />
-              </div>
-            </div>
-          </div>
-          <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-            aria-hidden="true"
+      <div className="flex flex-row items-stretch justify-between">
+        <span className="flex flex-row items-center space-x-2 bg-primary-neutral-50 text-3xs text-primary-neutral-700 rounded-full font-lato font-medium leading-3 inline-flex px-2 py-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
           >
-            <img
-              src={creator?.image?.url || "/assets/svg/defaultUser.svg"}
-              alt="creator"
-              className="h-6 w-6 rounded-full"
-            />
-          </span>
-        </div>
-      </div>
-
-      <div
-        className={`-mt-3 ${
-          open
-            ? "show-learning-box learning-box-details-expanded"
-            : "hide-learning-box learning-box-details"
-        }`}
-      >
-        {show && (
-          <div
-            className={`pb-2.5 px-5 learning-box-details-expanded relative ${
-              show ? "show-learning-box" : "hide-learning-box"
-            }`}
-          >
-            <div>
-              <ReactPlayer
-                className="react-player"
-                url={long_url}
-                width="100%"
-                height="100%"
-                playing
+            <g clip-path="url(#clip0_178_745)">
+              <path
+                d="M7.95444 10H2.04534C1.67034 10 1.36353 9.69318 1.36353 9.31818V0.681816C1.36353 0.306816 1.67034 0 2.04534 0H6.13626L8.63626 2.5V9.31818C8.63626 9.69318 8.32944 10 7.95444 10Z"
+                fill="#0086F9"
               />
-            </div>
-          </div>
-        )}
+              <path d="M6.13623 0L8.63623 2.5H6.13623V0Z" fill="#0067D9" />
+              <path
+                d="M2.95435 3.86328H7.04526V4.43146H2.95435V3.86328Z"
+                fill="#FBFFFF"
+              />
+              <path
+                d="M2.95435 5.22656H7.04526V5.79475H2.95435V5.22656Z"
+                fill="#FBFFFF"
+              />
+              <path
+                d="M2.95435 6.58984H5.9089V7.15803H2.95435V6.58984Z"
+                fill="#FBFFFF"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_178_745">
+                <rect width="10" height="10" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>{" "}
+          <p>{type?.name}</p>
+        </span>
+        <a
+          href={short_url}
+          target="__blank"
+          className="text-xs flex flex-row items-center space-x-1 font-bold text-primary-red-medium underline underline-offset-2 font-lato leading-5"
+        >
+          <p>View </p> <ChevronRightIcon className="w-4 h-4" />
+        </a>
+      </div>
+      <div className="px-2 flex flex-col space-y-2">
+        <p className="text-sm line-clamp-2 leading-5 font-lato text-black font-medium">
+          {title || "No Title"}
+        </p>
+        <p className="text-primary-neutral-500 font-lato text-xs font-normal leading-5 tracking-[0.24px]">
+          Associated Project
+        </p>
       </div>
     </div>
   );

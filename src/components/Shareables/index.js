@@ -38,7 +38,7 @@ function LearningList({ search, type }) {
 
   useEffect(() => fetchAllShortUrls(), [type]);
   return (
-    <div className="px-5 space-y-5 flex flex-col w-full overflow-y-auto max-h-70vh pb-20">
+    <div className="space-y-6 flex flex-col w-full pb-20">
       {!fetching ? (
         shortUrls?.length > 0 ? (
           shortUrls.map((item) => {

@@ -25,13 +25,17 @@ function BreadCrumb({
       {page2 && (
         <>
           <ChevronRightIcon className="w-3 h-3" />
-          <p className={`font-light  ${page3 ? "" : "underline"}`}>{page2}</p>
+          <p className={`  ${page3 ? "font-light" : "font-semibold"}`}>
+            {page2}
+          </p>
         </>
       )}
       {page3 && (
         <>
           <ChevronRightIcon className="w-3 h-3" />
-          <p className={`font-light underline `}>{page3}</p>
+          <p className={`  ${page3 ? "font-light" : "font-semibold"}`}>
+            {page3}
+          </p>
         </>
       )}
     </div>
