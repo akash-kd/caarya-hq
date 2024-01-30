@@ -77,12 +77,16 @@ function FocusArea() {
     }
   }, [currentSession]);
 
-  const clockIn = async () => {
+  const clockIn = async (data) => {
     try {
+      let duration = parseInt(data.split(" ")[0]);
+      if (data.split(" ")[1] === "Hour") duration *= 60;
+      console.log(duration);
       let time = moment();
       const response = await startSession({
         clockIn: time,
         goalId: focusedGoal?.id,
+        duration,
       });
       setCurrentSession(response?.data?.data);
     } catch (err) {
@@ -126,8 +130,8 @@ function FocusArea() {
         closeModal={() => {
           setOpenClockIn(false);
         }}
-        onUpdate={() => {
-          clockIn();
+        onUpdate={(data) => {
+          clockIn(data);
           setOpenClockIn(false);
         }}
       />{" "}

@@ -49,7 +49,6 @@ export const fetchOngoingJournals = () => {
       const response = await JournalAPI.getOnGoingJournal();
       if (response.status === 200) {
         let data = response.data;
-        console.log(response?.data);
         // Dispatching ongoing journal data to redux-store
         dispatch(
           updateOngoingJournals({

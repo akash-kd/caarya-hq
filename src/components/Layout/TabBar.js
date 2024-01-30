@@ -4,21 +4,86 @@ import { useHistory } from "react-router-dom";
 import { mobileBottomNav } from "helpers/constants";
 import { PlusIcon } from "@heroicons/react/solid";
 import { fetchOngoingJournals } from "redux/journals";
+import moment from "moment";
+import { endSession, extendSession } from "config/APIs/session";
+import { showToast } from "redux/toaster";
+
 function TabBar() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [time, setTime] = useState(0);
+  const onGoingJournals = useSelector((state) => state?.journals?.onGoing);
+  const [openModal, setOpenModal] = useState(false);
+  const [extendedTime, setExtendedTime] = useState(0);
   useEffect(() => {
     let isMounted = true;
 
     if (isMounted && !location?.pathname?.includes("/redirect")) {
       dispatch(fetchOngoingJournals());
+      let journal = onGoingJournals?.data;
+      console.log(journal);
+      let clockIn = moment(journal?.clockIn);
+      if (moment().diff(clockIn, "minutes") >= journal?.duration) {
+        setOpenModal(true);
+      }
     }
     return () => {
       isMounted = false;
     };
   }, []);
+  const onExtendSession = async () => {
+    try {
+      const body = {
+        sessionId: onGoingJournals?.data?.sessionId,
+        goalId: onGoingJournals?.data?.id,
+        newDuration: extendedTime,
+      };
+      const res = await extendSession(body);
+      console.log(res);
+      await onClockOut();
+    } catch (err) {
+      console.log(err);
+    }
+    openModal(false);
+  };
+
+  const onClockOut = async () => {
+    try {
+      const response = await endSession({
+        sessionId: onGoingJournals?.data?.sessionId,
+        clockOut: moment(),
+        goalId: onGoingJournals?.data?.id,
+      });
+      console.log(response);
+      // onUpdate();
+    } catch (err) {
+      dispatch(
+        showToast({ message: err?.response?.data?.message, type: "error" })
+      );
+      console.log("Error", err);
+    }
+    openModal(false);
+  };
   return (
-    <div>
+    <div className="relative">
+      {openModal && (
+        <div className="z-50 absolute top-[-500px] bg-white w-full flex flex-col p-8 gap-4 shadow-lg">
+          <h1>
+            You have an ongoing session complete, do you want to extend your
+            session or clock it out?
+          </h1>
+          <input
+            value={extendedTime}
+            type="number"
+            onChange={(e) => setExtendedTime(e.target.value)}
+            placeholder="Enter extended session time in minutes"
+          />
+          <div className="flex justify-evenly">
+            <button onClick={() => onExtendSession()}>Extend</button>
+            <button onClick={() => onClockOut()}>Clockout</button>
+          </div>
+        </div>
+      )}
       <div
         className={`w-full fixed z-30 bottom-0 right-0 tapbar left-0 lg:hidden transform transition-all ease-in-out duration-300 font-karla`}
       >
