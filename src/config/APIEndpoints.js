@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const config = {
-  environment: process.env.REACT_APP_ENV || "production",
+  environment: process.env.REACT_APP_ENV || "local",
   endpoints: {
     prod: "https://chronos-prod-tk4gwh76qa-el.a.run.app",
     dev: "https://chronos-dev-tk4gwh76qa-el.a.run.app",

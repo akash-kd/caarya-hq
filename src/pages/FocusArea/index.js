@@ -121,6 +121,7 @@ function FocusArea() {
       />{" "}
       <ClockOutModal
         goal={focusedGoal}
+        session={currentSession}
         isOpen={openClockOut}
         closeModal={() => {
           setOpenClockOut(false);

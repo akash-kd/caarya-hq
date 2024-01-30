@@ -10,7 +10,7 @@ import sourcingDriveReducer from "./sourcingDrive";
 import collegeReducer from "./college";
 import tracksReducer from "./tracks";
 import dropdown from "./dropdown";
-
+import journalReducer from "./journals";
 const store = configureStore({
   reducer: {
     sideNav: navigationReducer,
@@ -23,6 +23,7 @@ const store = configureStore({
     dropdown: dropdown,
     tracks: tracksReducer,
     goals: goalsReducer,
+    journals: journalReducer,
   },
 });
 
