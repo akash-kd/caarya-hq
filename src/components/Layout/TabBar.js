@@ -1,10 +1,22 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { mobileBottomNav } from "helpers/constants";
 import { PlusIcon } from "@heroicons/react/solid";
+import { fetchOngoingJournals } from "redux/journals";
 function TabBar() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted && !location?.pathname?.includes("/redirect")) {
+      dispatch(fetchOngoingJournals());
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   return (
     <div>
       <div
