@@ -14,12 +14,14 @@ const JournalCard = ({ journal }) => {
           <div className="flex justify-evenly mt-4 mb-4">
             <div>
               <p className="text-sm text-neutral-500 font-semibold">
-                4 / <span className="text-xs">4</span>
+                {journal?.session?.sessionCount}
               </p>
-              <p className="text-xs text-neutral-500">Session no.</p>
+              <p className="text-xs text-neutral-500">Total Sessions</p>
             </div>
             <div>
-              <p className="text-sm text-neutral-500 font-semibold">40m</p>
+              <p className="text-sm text-neutral-500 font-semibold">
+                {journal?.session?.sessionTime}
+              </p>
               <p className="text-xs text-neutral-500">Session Time</p>
             </div>
           </div>
