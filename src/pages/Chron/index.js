@@ -1,4 +1,5 @@
-import { ChronPageHeader, ChronBreadcrumbs } from "components/Chron";
+import { ChronPageHeader } from "components/Chron";
+import Breadcrumbs from "components/Comman/BreadCrumb"
 import { Add } from "components/Chron/icons";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
@@ -23,7 +24,7 @@ function Chronicles() {
 
   return (
     <div>
-      <ChronBreadcrumbs page1="Chronicles" />
+      <Breadcrumbs page1="Chronicles" dark />
       <div className="overflow-scroll min-h-85vh h-[85vh] bg-dark-bg">
         <ChronPageHeader heading="Caarya Daily Chronicles" />
 
