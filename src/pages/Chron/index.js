@@ -1,11 +1,11 @@
 import { ChronPageHeader } from "components/Chron";
-import Breadcrumbs from "components/Comman/BreadCrumb"
-import { Add } from "components/Chron/icons";
+import Breadcrumbs from "components/Comman/BreadCrumb";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { getAllChron } from "config/APIs/chron";
 import { useState } from "react";
 import moment from "moment";
+
 
 function Chronicles() {
   const history = useHistory();
@@ -20,7 +20,6 @@ function Chronicles() {
     fetch();
   }, []);
 
-  console.log(data);
 
   return (
     <div>
@@ -93,7 +92,8 @@ function Chronicles() {
           className="flex justify-end items-center w-full h-20 relative top-[-112px] px-4 py-4"
         >
           <div className="fixed cursor-pointer flex justify-center items-center gap-2 p-4 red-gradient rounded-2xl">
-            <Add />
+            {/* This is a Add Icon */}
+            <image src="/assets/svg/chron/add.svg" alt="Add Icon" />
             <h3 className="font-lato text-white">Add Chronicle</h3>
           </div>
         </div>

@@ -1,7 +1,4 @@
-export default function Close({onClick}) {
-  return (
-    <svg
-      onClick={onClick}
+<svg
       className="cursor-pointer"
       width="40"
       height="41"
@@ -15,5 +12,3 @@ export default function Close({onClick}) {
         fill="black"
       />
     </svg>
-  );
-}

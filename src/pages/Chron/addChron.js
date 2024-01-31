@@ -1,20 +1,16 @@
 import { useState } from "react";
-import { ChronPageHeader, ChronBreadcrumbs } from "components/Chron";
-import { Add } from "components/Chron/icons";
-import Close from "components/Chron/icons/close";
-import { Emoji, List, Image } from "components/Chron/icons/icons";
 import { useHistory } from "react-router-dom";
 import RichTextEditor from "react-rte";
-import { AddChron, addChron } from "config/APIs/chron";
+import { addChron } from "config/APIs/chron";
 
 const Top = ({ onPostClick }) => {
   const histroy = useHistory();
   return (
     <div className="flex items-center justify-between relative mb-2">
-      <Close
-        onClick={() => {
-          histroy.push("/chron");
-        }}
+      {/* Icon: Close*/ }
+      <image
+        src="/assets/svg/chron/close.svg"
+        onClick={() => histroy.push("/chron")}
       />
 
       <div
@@ -70,10 +66,6 @@ function AddChronicles() {
         <h5 className="text-zinc-800 text-sm font-semibold font-lato leading-[21px] tracking-tight">
           Add Your Chronicle
         </h5>
-        {/* <textarea
-          placeholder="start typing..."
-          className="mt-4 w-full h-[120px] px-4 py-3 bg-neutral-50 rounded border border-zinc-100 justify-start items-start gap-2 inline-flex font-lato outline-none placeholder:text-stone-300"
-        /> */}
         <RichTextEditor
           placeholder="start typing..."
           value={state}
@@ -82,9 +74,10 @@ function AddChronicles() {
           className="mt-4 w-full h-[200px] bg-neutral-50 rounded border border-zinc-100 gap-2 font-lato outline-none placeholder:text-stone-300"
         />
         <div className="w-full flex justify-end py-2 gap-4">
-          <Emoji />
-          <Image />
-          <List />
+          {/* Icons: Emoji, Image and List */}
+          <image src="/assets/svg/chron/emoji.svg" alt="Emoji Icon" />
+          <image src="/assets/svg/chron/image.svg" alt="Image Icon" />
+          <image src="/assets/svg/chron/list.svg" alt="List  Icon" />
         </div>
       </div>
     </div>
