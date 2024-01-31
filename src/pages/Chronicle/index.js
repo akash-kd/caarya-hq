@@ -1,11 +1,10 @@
-import { ChronPageHeader } from "components/Chron";
+import { ChronPageHeader } from "components/Chronicle";
 import Breadcrumbs from "components/Comman/BreadCrumb";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { getAllChron } from "config/APIs/chron";
+import { getAllChronicle } from "config/APIs/chronicle";
 import { useState } from "react";
 import moment from "moment";
-
 
 function Chronicles() {
   const history = useHistory();
@@ -13,10 +12,9 @@ function Chronicles() {
 
   useEffect(() => {
     async function fetch() {
-      const res = await getAllChron();
-      setData(res.data.chrons);
+      const res = await getAllChronicle();
+      setData(res.data.data);
     }
-
     fetch();
   }, []);
 
