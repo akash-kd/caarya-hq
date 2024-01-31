@@ -8,10 +8,6 @@ import FocusArea from "pages/FocusArea";
 import ProjectsPage from "pages/Project";
 import Shareables from "pages/Shareables";
 import Chronicles from "pages/Chronicles";
-<<<<<<< HEAD
-import Chronicle from "pages/Chronicle";
-=======
->>>>>>> origin/master
 import Today from "pages/Today";
 import AcrossTheVerse from "pages/Verse";
 import Events from "pages/Events";
@@ -20,11 +16,7 @@ import Learning from "pages/Learning";
 import Essentials from "pages/FoundationEssentials/Essentials";
 import TribeVibe from "pages/TribeVibe";
 import Sprint from "pages/SprintCard";
-<<<<<<< HEAD
-import AddChronicles from "pages/Chronicle/addChronicles";
-=======
 import AddChronicles from "pages/Chronicles/AddChron";
->>>>>>> origin/master
 // Authenticated Paths
 
 // Array of routes only a logged in user can access
