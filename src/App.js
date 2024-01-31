@@ -60,10 +60,10 @@ function App() {
 
     if (isMounted && !location?.pathname?.includes("/redirect")) {
       refresh();
+      dispatch(fetchAllUsers());
       dispatch(fetchAllProjects());
 
       dispatch(fetchAllgoals());
-      dispatch(fetchAllUsers());
     }
 
     return () => {
