@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   journals: [],
+  onGoing: [],
 };
 
 // Storing journals
@@ -13,10 +14,13 @@ export const journals = createSlice({
     updateJournals: (state, action) => {
       state.journals = action.payload.journals;
     },
+    updateOngoingJournals: (state, action) => {
+      state.onGoing = action.payload.onGoing;
+    },
   },
 });
 
-export const { updateJournals } = journals.actions;
+export const { updateJournals, updateOngoingJournals } = journals.actions;
 
 export default journals.reducer;
 
@@ -35,6 +39,25 @@ export const fetchAllJournals = () => {
       }
     } catch (err) {
       console.log("Journals fetching error", err);
+    }
+  };
+};
+
+export const fetchOngoingJournals = () => {
+  return async (dispatch) => {
+    try {
+      const response = await JournalAPI.getOnGoingJournal();
+      if (response.status === 200) {
+        let data = response.data;
+        // Dispatching ongoing journal data to redux-store
+        dispatch(
+          updateOngoingJournals({
+            onGoing: data,
+          })
+        );
+      }
+    } catch (err) {
+      console.log("Ongoing journals fetching error", err);
     }
   };
 };

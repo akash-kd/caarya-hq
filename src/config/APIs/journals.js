@@ -17,3 +17,6 @@ export const destroyAJournal = (id) =>
 
 export const findMyJournals = (query = {}) =>
   forgeInstance.get(`/journals/my`, getHeader());
+
+export const getOnGoingJournal = (query = {}) =>
+  forgeInstance.get(`/journals/ongoing`, getHeader());

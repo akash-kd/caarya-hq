@@ -16,11 +16,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchAllgoals } from "redux/goal";
+import { fetchOngoingJournals } from "redux/journals";
 import { showToast } from "redux/toaster";
 
 function FocusArea() {
   const history = useHistory();
   const allGoals = useSelector((state) => state.goals?.goals);
+  const ongoingGoal = useSelector((state) => state.journals?.onGoing);
   const [selectedFocus, setselectedFocus] = useState("Nightwatch");
 
   const dispatch = useDispatch();
@@ -31,7 +33,17 @@ function FocusArea() {
   const [openFocusGoals, setOpenFocusGoals] = useState(false);
   const [currentSession, setCurrentSession] = useState();
   const [focusedGoal, setFocusedGoal] = useState();
-
+  useEffect(() => {
+    dispatch(fetchOngoingJournals());
+    if (Object.keys(ongoingGoal?.data).length !== 0) {
+      setOpenClockIn(false);
+      setFocusedGoal(ongoingGoal?.data);
+      setCurrentSession({
+        id: ongoingGoal?.data?.sessionId,
+        clockIn: ongoingGoal?.data?.clockIn,
+      });
+    }
+  }, []);
   useEffect(() => {
     let interval;
     if (running) {
@@ -65,12 +77,16 @@ function FocusArea() {
     }
   }, [currentSession]);
 
-  const clockIn = async () => {
+  const clockIn = async (data) => {
     try {
+      let duration = parseInt(data.split(" ")[0]);
+      if (data.split(" ")[1] === "Hour") duration *= 60;
+      console.log(duration);
       let time = moment();
       const response = await startSession({
         clockIn: time,
         goalId: focusedGoal?.id,
+        duration,
       });
       setCurrentSession(response?.data?.data);
     } catch (err) {
@@ -114,8 +130,8 @@ function FocusArea() {
         closeModal={() => {
           setOpenClockIn(false);
         }}
-        onUpdate={() => {
-          clockIn();
+        onUpdate={(data) => {
+          clockIn(data);
           setOpenClockIn(false);
         }}
       />{" "}
