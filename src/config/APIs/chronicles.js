@@ -1,12 +1,12 @@
-import { getHeader, liveInstance } from ".";
+import { getHeader, hqInstance } from ".";
 export const createChronicles = (body) =>
-  liveInstance.post(`/chronicle`, body, getHeader());
+  hqInstance.post(`/chronicle`, body, getHeader());
 
 export const deleteChronicles = (id) =>
-  liveInstance.delete(`/chronicle/${id}`, getHeader());
+  hqInstance.delete(`/chronicle/${id}`, getHeader());
 
 export const getAllChronicles = (query) =>
-  liveInstance.get(
+  hqInstance.get(
     `/chronicle${
       query && Object.keys(query).length > 0
         ? `?${new URLSearchParams(query)}`
@@ -16,7 +16,7 @@ export const getAllChronicles = (query) =>
   );
 
 export const getAllProducts = (query) =>
-  liveInstance.get(
+  hqInstance.get(
     `/product${
       query && Object.keys(query).length > 0
         ? `?${new URLSearchParams(query)}`
@@ -26,7 +26,7 @@ export const getAllProducts = (query) =>
   );
 
 export const getChroniclesById = (id) =>
-  liveInstance.get(`/chronicle${id}`, getHeader());
+  hqInstance.get(`/chronicle?${new URLSearchParams(id)}`, getHeader());
 
 export const updateChronicles = (id, body) =>
-  liveInstance.patch(`/chronicle${id}`, body, getHeader());
+  hqInstance.patch(`/chronicle/${id}`, body, getHeader());

@@ -5,3 +5,6 @@ export const startSession = (body) =>
 
 export const endSession = (body) =>
   forgeInstance.put(`/session/end`, body, getHeader());
+
+export const extendSession = (body) =>
+  forgeInstance.post("/session/update", body, getHeader());

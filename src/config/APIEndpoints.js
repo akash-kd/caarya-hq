@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 const config = {
-  environment: process.env.REACT_APP_ENV || "production",
+  environment: process.env.REACT_APP_ENV || "local",
   endpoints: {
-    prod: "https://chronos-prod-tk4gwh76qa-el.a.run.app",
-    dev: "https://chronos-dev-tk4gwh76qa-el.a.run.app",
+    prod: "https://chronos-core-prod-tk4gwh76qa-el.a.run.app",
+    dev: "https://chronos-core-dev-tk4gwh76qa-el.a.run.app",
     local: "http://localhost:4193",
   },
 
@@ -16,7 +16,7 @@ const config = {
       case "production":
         return this.endpoints.prod;
       default:
-        return "https://chronos-dev-tk4gwh76qa-el.a.run.app";
+        return "https://chronos-core-dev-tk4gwh76qa-el.a.run.app";
     }
   },
 };

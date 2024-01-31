@@ -12,7 +12,7 @@ function AppWrapper({ children }) {
       <DesktopWrapper>
         <div className="overflow-y-auto mt-11 lg:mt-2 py-3">{children}</div>
       </DesktopWrapper>
-      {window?.location?.pathname === "/chron/add" ? <></> : <TabBar />}
+      {window?.location?.pathname === "/chronicle/add" ? <></> : <TabBar />}
     </div>
   );
 }

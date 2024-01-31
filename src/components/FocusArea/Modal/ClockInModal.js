@@ -137,7 +137,7 @@ function ClockInModal({ isOpen, closeModal, onUpdate }) {
         >
           <div
             onClick={() => {
-              onUpdate();
+              onUpdate(data);
             }}
             className={`w-full py-6 px-5 flex cursor-pointer flex-row space-x-2 items-center justify-center text-primary-red-darker font-lato text-sm font-semibold transition duration-150 ease-in-out ${
               ctaText ? "opacity-100" : "opacity-0"

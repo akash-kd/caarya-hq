@@ -14,6 +14,7 @@ function FocusGoalCard({ item, onFocus, focused }) {
   const dispatch = useDispatch();
   const [status, setStatus] = useState();
   useEffect(() => {
+    console.log(item, onFocus, focused);
     setStatus(item?.status);
   }, [item]);
 
