@@ -30,11 +30,11 @@ export const getMultipartHeader = () => {
 export const instance = axios.create({
   baseURL: ADMIN_API_URL,
 });
-export const forgeInstance = axios.create({
+export const hqInstance = axios.create({
   baseURL: HQ_ENDPOINT,
 });
 
-export const refreshToken = () => forgeInstance.get("/auth/token", getHeader());
+export const refreshToken = () => hqInstance.get("/auth/token", getHeader());
 export const liveInstance = axios.create({
   baseURL: LIVE_ENDPOINT,
 });
