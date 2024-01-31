@@ -1,5 +1,5 @@
 import YodaLoader from "components/Comman/Loaders/YodaLoader";
-import { refreshToken } from "config/APIs";
+import { refreshToken } from "config/APIs/auth";
 
 import React from "react";
 

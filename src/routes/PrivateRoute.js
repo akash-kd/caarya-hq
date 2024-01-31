@@ -8,7 +8,6 @@ import FocusArea from "pages/FocusArea";
 import ProjectsPage from "pages/Project";
 import Shareables from "pages/Shareables";
 import Chronicles from "pages/Chronicles";
-import Chron from "pages/Chronicles";
 import Today from "pages/Today";
 import AcrossTheVerse from "pages/Verse";
 import Events from "pages/Events";

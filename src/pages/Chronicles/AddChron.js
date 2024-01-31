@@ -1,16 +1,16 @@
+import { createChronicles } from "config/APIs/chronicles";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import RichTextEditor from "react-rte";
-import { addChron } from "config/APIs/chron";
 
 const Top = ({ onPostClick }) => {
   const histroy = useHistory();
   return (
     <div className="flex items-center justify-between relative mb-2">
-      {/* Icon: Close*/ }
+      {/* Icon: Close*/}
       <image
         src="/assets/svg/chron/close.svg"
-        onClick={() => histroy.push("/chron")}
+        onClick={() => histroy.push("/chronicle")}
       />
 
       <div
@@ -34,7 +34,7 @@ function AddChronicles() {
 
   const onPostClick = () => {
     const user = JSON.parse(localStorage.getItem("admin"));
-    addChron({ message: state.toString("html"), user_id: user.id });
+    createChronicles({ message: state.toString("html"), user_id: user.id });
   };
 
   const toolbarConfig = {

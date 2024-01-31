@@ -34,7 +34,10 @@ export const hqInstance = axios.create({
   baseURL: HQ_ENDPOINT,
 });
 
-export const refreshToken = () => hqInstance.get("/auth/token", getHeader());
+export const forgeInstance = axios.create({
+  baseURL: HQ_ENDPOINT,
+});
+
 export const liveInstance = axios.create({
   baseURL: LIVE_ENDPOINT,
 });

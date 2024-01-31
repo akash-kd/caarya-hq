@@ -15,11 +15,11 @@ import NonAuthMiddleware from "routes/NonAuthMiddleware";
 import AuthenticatedRedirects from "routes/AuthenticatedRedirects";
 
 // APIs
-import { refreshToken } from "config/APIs";
 import { fetchAllgoals } from "redux/goal";
 import LaptopState from "layout/LaptopState";
 import { fetchAllProjects } from "redux/projects";
 import { fetchAllUsers } from "redux/dropdown";
+import { refreshToken } from "config/APIs/auth";
 
 function App() {
   const dispatch = useDispatch();
