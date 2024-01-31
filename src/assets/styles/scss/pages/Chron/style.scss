@@ -1,0 +1,12 @@
+.red-gradient {
+  background: linear-gradient(180deg, #FF7E6E 0%, #C63434 100%);
+}
+
+.DraftEditor-root{
+  font-family: 'Lato', sans-serif;
+}
+
+.DraftEditor-editorContainer{
+  max-height: 140px;
+  overflow: scroll;
+}

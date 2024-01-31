@@ -1,0 +1,14 @@
+<svg
+      className="cursor-pointer"
+      width="40"
+      height="41"
+      viewBox="0 0 40 41"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect y="0.5" width="40" height="40" rx="20" fill="#FAFAFA" />
+      <path
+        d="M20 19.086L24.95 14.136L26.364 15.55L21.414 20.5L26.364 25.45L24.95 26.864L20 21.914L15.05 26.864L13.636 25.45L18.586 20.5L13.636 15.55L15.05 14.136L20 19.086Z"
+        fill="black"
+      />
+    </svg>

@@ -151,6 +151,10 @@ module.exports = {
             700: "#5E4FBA",
           },
         },
+
+        dark: {
+          bg: "#1a1716",
+        },
       },
       borderRadius: { "10px": "10px", "20px": "20px" },
       maxHeight: {
@@ -189,6 +193,7 @@ module.exports = {
         "80vh": "80vh",
         "85vh": "85vh",
         "90vh": "90vh",
+        "95vh": "95vh",
       },
       width: {
         "20vw": "20vw",
