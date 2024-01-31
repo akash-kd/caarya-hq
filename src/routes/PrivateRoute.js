@@ -133,7 +133,7 @@ const privateRoutes = [
     description: "",
     tab: "Chronicle",
     path: "/chronicle",
-    component: Chronicle,
+    component: Chronicles,
   },
 
   {
