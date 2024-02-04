@@ -10,3 +10,14 @@
   max-height: 140px;
   overflow: scroll;
 }
+
+.bg-gradient{
+  background: radial-gradient(139.55% 111.8% at 100% 100%, #1A0404 0%, #1A1A1A 100%), #FFF;
+}
+
+.title-gradient {
+  background: linear-gradient(180deg, #FF7E6E 0%, #C63434 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}

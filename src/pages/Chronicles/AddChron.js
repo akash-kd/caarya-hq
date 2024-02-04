@@ -41,9 +41,9 @@ function AddChronicles() {
     // Optionally specify the groups to display (displayed in the order listed).
     display: ["INLINE_STYLE_BUTTONS", "BLOCK_TYPE_BUTTONS"],
     INLINE_STYLE_BUTTONS: [
-      { label: "Bold", style: "BOLD", className: "custom-css-class" },
-      { label: "Italic", style: "ITALIC" },
-      { label: "Underline", style: "UNDERLINE" },
+      { label: "Bold", style: "BOLD", className: "buttonGroup1-1" },
+      { label: "Italic", style: "ITALIC", className: "buttonGroup1-2" },
+      { label: "Underline", style: "UNDERLINE", className: "buttonGroup1-3" },
     ],
     BLOCK_TYPE_DROPDOWN: [
       { label: "Normal", style: "unstyled" },
@@ -63,7 +63,7 @@ function AddChronicles() {
         <h3 className="text-red-400 text-lg font-bold font-satoshi leading-[27px] tracking-tight mb-6">
           New Chronicle
         </h3>
-        <h5 className="text-zinc-800 text-sm font-semibold font-lato leading-[21px] tracking-tight">
+        <h5 className="text-[#363430] text-sm font-semibold font-lato leading-[21px] tracking-tight">
           Add Your Chronicle
         </h5>
         <RichTextEditor

@@ -1,4 +1,4 @@
-import { ChronPageHeader } from "components/Chron";
+import { ChronPageHeader } from "components/Chronicle";
 import Breadcrumbs from "components/Comman/BreadCrumb";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
@@ -22,7 +22,7 @@ function Chronicles() {
   return (
     <div>
       <Breadcrumbs page1="Chronicles" dark />
-      <div className="overflow-scroll min-h-85vh h-[85vh] bg-dark-bg">
+      <div className="overflow-scroll min-h-85vh h-[85vh] bg-gradient">
         <ChronPageHeader heading="Caarya Daily Chronicles" />
 
         <div className="flex flex-col gap-[16px] p-[16px] relative bg-[#ffffff0d] my-10">
@@ -87,7 +87,7 @@ function Chronicles() {
           onClick={() => {
             history.push("/chronicle/add");
           }}
-          className="flex justify-end items-center w-full h-20 relative top-[-112px] px-4 py-4"
+          className="flex justify-end items-center w-full h-20 relative top-[-120px] px-4 py-4"
         >
           <div className="fixed cursor-pointer flex justify-center items-center gap-2 p-4 red-gradient rounded-2xl">
             {/* This is a Add Icon */}
